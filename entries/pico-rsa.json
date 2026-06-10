@@ -1,0 +1,13 @@
+{
+  "slug": "pico-rsa",
+  "title": "RSA Backdoor",
+  "platform": "PicoCTF",
+  "difficulty": "Medium",
+  "os": "N/A",
+  "date": "2026-05-10",
+  "flags": 1,
+  "favorite": false,
+  "tags": ["Cryptography", "RSA", "Python", "Math"],
+  "writeup": "content/pico-rsa.md",
+  "screenshots": []
+}

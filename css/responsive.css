@@ -1,0 +1,181 @@
+/* ===================================================
+   RESPONSIVE — Mobile-first, iPhone bottom tab bar
+   =================================================== */
+
+/* ================================================
+   TABLET — iPad-style (≤ 1100px)
+   ================================================ */
+@media screen and (max-width: 1100px) {
+    :root { --sidebar-width: 240px; }
+
+    .main-content {
+        padding: var(--space-32) var(--space-24) var(--space-32);
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-page-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        position: static;
+    }
+}
+
+/* ================================================
+   MOBILE — iPhone style (≤ 768px)
+   ================================================ */
+@media screen and (max-width: 768px) {
+    /* Hide desktop sidebar */
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+        width: 300px;
+        z-index: 210;
+        padding-top: var(--space-64);
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+        box-shadow: 4px 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Show overlay */
+    .sidebar-overlay { display: block; }
+
+    /* Show mobile header */
+    .mobile-header { display: flex; }
+
+    /* Show bottom tab bar */
+    .tab-bar { display: block; }
+
+    /* Main content adjustments */
+    .main-content {
+        margin-left: 0;
+        padding: calc(56px + var(--space-24)) var(--space-16) calc(var(--tab-bar-height) + var(--space-16));
+    }
+
+    /* Page header */
+    .page-header { margin-bottom: var(--space-20); }
+
+    .page-header h2 { font-size: 1.6rem; }
+
+    /* Stats row — 2 cols */
+    .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Grid — 1 col on small */
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+
+    /* Analytics grid */
+    .analytics-grid { grid-template-columns: 1fr; }
+
+    /* Profile grid */
+    .profile-page-grid { grid-template-columns: 1fr; }
+
+    .profile-card { position: static; }
+
+    /* Archive toolbar wraps */
+    .archive-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Entry page */
+    .entry-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .markdown-body {
+        padding: var(--space-20);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Terminal — full width */
+    .terminal-container {
+        width: 100%;
+        right: 0;
+        left: 0;
+        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+
+    /* Cards */
+    .card { border-radius: var(--radius-lg); }
+
+    /* Filter pills scroll */
+    .filter-bar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: var(--space-4);
+        scrollbar-width: none;
+    }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-pill { flex-shrink: 0; }
+}
+
+/* ================================================
+   SMALL PHONES — (≤ 390px)
+   ================================================ */
+@media screen and (max-width: 390px) {
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .page-header h2 { font-size: 1.4rem; }
+
+    .stat-value { font-size: 1.6rem; }
+
+    .tab-btn { min-width: 50px; padding: var(--space-6) var(--space-8); }
+    .tab-btn .tab-label { font-size: 0.58rem; }
+}
+
+/* ================================================
+   DESKTOP LARGE — (≥ 1440px)
+   ================================================ */
+@media screen and (min-width: 1440px) {
+    .main-content {
+        padding: var(--space-48) var(--space-40);
+    }
+
+    .grid-layout {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    .stats-row {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* ================================================
+   iOS Safe Area Support (notch, home indicator)
+   ================================================ */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .tab-bar {
+        padding-bottom: max(env(safe-area-inset-bottom), 8px);
+    }
+
+    .main-content {
+        padding-left: max(var(--space-16), env(safe-area-inset-left));
+        padding-right: max(var(--space-16), env(safe-area-inset-right));
+    }
+}
+
+/* ================================================
+   PRINT STYLES
+   ================================================ */
+@media print {
+    .sidebar, .tab-bar, .mobile-header, .terminal-container { display: none !important; }
+    .main-content { margin-left: 0; padding: 0; }
+    .card { box-shadow: none; border: 1px solid #ccc; }
+}

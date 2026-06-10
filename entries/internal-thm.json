@@ -1,0 +1,13 @@
+{
+  "slug": "internal-thm",
+  "title": "Internal",
+  "platform": "TryHackMe",
+  "difficulty": "Hard",
+  "os": "Linux",
+  "date": "2026-04-05",
+  "flags": 2,
+  "favorite": true,
+  "tags": ["WordPress", "Jenkins", "Tunneling", "SSH Pivoting"],
+  "writeup": "content/internal-thm.md",
+  "screenshots": []
+}

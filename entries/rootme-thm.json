@@ -1,0 +1,13 @@
+{
+  "slug": "rootme-thm",
+  "title": "RootMe",
+  "platform": "TryHackMe",
+  "difficulty": "Easy",
+  "os": "Linux",
+  "date": "2026-03-10",
+  "flags": 2,
+  "favorite": false,
+  "tags": ["File Upload", "PHP Bypass", "SUID", "Linux"],
+  "writeup": "content/rootme-thm.md",
+  "screenshots": []
+}

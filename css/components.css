@@ -1,0 +1,618 @@
+/* ===================================================
+   COMPONENTS — Cards, nav links, tags, buttons, etc.
+   =================================================== */
+
+/* ================================================
+   GLASSMORPHISM PANEL
+   ================================================ */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--blur-xl);
+    -webkit-backdrop-filter: var(--blur-xl);
+    border: 1px solid var(--glass-border);
+}
+
+/* ================================================
+   NAVIGATION LINKS — iOS sidebar style
+   ================================================ */
+.nav-link {
+    position: relative;
+    padding: var(--space-10, 0.625rem) var(--space-12);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav-link .nav-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-pill);
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+
+.nav-link .nav-icon svg,
+.nav-link .nav-icon img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.65;
+    transition: opacity var(--transition-fast);
+}
+
+.nav-link:hover {
+    background: var(--bg-pill);
+    color: var(--text-primary);
+}
+
+.nav-link:hover .nav-icon img,
+.nav-link:hover .nav-icon svg { opacity: 0.85; }
+
+.nav-link.active {
+    background: var(--accent-dim);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.nav-link.active .nav-icon {
+    background: var(--accent-color);
+}
+
+.nav-link.active .nav-icon img,
+.nav-link.active .nav-icon svg {
+    opacity: 1;
+    filter: brightness(0) invert(1);
+}
+
+.nav-link:active { transform: scale(0.97); }
+
+/* ================================================
+   THEME TOGGLE — iOS-style pill switch
+   ================================================ */
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-8) var(--space-4);
+    gap: var(--space-12);
+}
+
+.theme-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+#theme-toggle {
+    position: relative;
+    width: 52px;
+    height: 30px;
+    border-radius: var(--radius-pill);
+    background: var(--border-color);
+    transition: background var(--transition-smooth);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#theme-toggle::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    transition: transform var(--transition-spring), background var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme="light"] #theme-toggle {
+    background: var(--accent-color);
+}
+
+[data-theme="light"] #theme-toggle::after {
+    transform: translateX(22px);
+    background: white;
+}
+
+/* ================================================
+   CARDS — iOS widget-style
+   ================================================ */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-20);
+    transition:
+        transform var(--transition-spring),
+        box-shadow var(--transition-smooth),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+    box-shadow: var(--shadow-sm);
+    will-change: transform;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle top highlight line */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: var(--space-20);
+    right: var(--space-20);
+    height: 1px;
+    background: var(--glass-highlight);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.005);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+    background: var(--bg-card-hover);
+}
+
+.card:active { transform: scale(0.98); }
+
+/* Card Header row */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-8);
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    flex: 1;
+}
+
+.card-favorite {
+    color: var(--sys-yellow);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Card Footer row */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    padding-top: var(--space-12);
+    border-top: 1px solid var(--divider);
+    margin-top: auto;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.card-meta-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.5;
+}
+
+/* ================================================
+   STAT WIDGETS — iOS Activity Ring style
+   ================================================ */
+.stat-widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    padding: var(--space-20);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-spring), box-shadow var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-widget::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--widget-accent, var(--accent-dim));
+    opacity: 0.4;
+    filter: blur(20px);
+}
+
+.stat-widget:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+.stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.stat-sub {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Colored stat accent lines */
+.stat-widget.accent-green  { --widget-accent: rgba(48, 209, 88, 0.20); }
+.stat-widget.accent-blue   { --widget-accent: rgba(10, 132, 255, 0.20); }
+.stat-widget.accent-orange { --widget-accent: rgba(255, 159, 10, 0.20); }
+.stat-widget.accent-purple { --widget-accent: rgba(191, 90, 242, 0.20); }
+.stat-widget.accent-teal   { --widget-accent: rgba(100, 210, 255, 0.20); }
+
+.stat-widget.accent-green  .stat-value { color: var(--sys-green); }
+.stat-widget.accent-blue   .stat-value { color: var(--sys-blue); }
+.stat-widget.accent-orange .stat-value { color: var(--sys-orange); }
+.stat-widget.accent-purple .stat-value { color: var(--sys-purple); }
+.stat-widget.accent-teal   .stat-value { color: var(--sys-teal); }
+
+/* ================================================
+   TAGS — iOS pill style
+   ================================================ */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+}
+
+.tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    border: 1px solid transparent;
+    transition: background var(--transition-fast);
+}
+
+.tag.platform {
+    background: var(--accent-dim);
+    color: var(--accent-color);
+    border-color: transparent;
+}
+
+/* Platform-specific tags */
+.tag.platform-htb     { background: rgba(159, 239, 0, 0.12);  color: var(--color-htb);  }
+.tag.platform-thm     { background: rgba(193, 17, 17, 0.12);  color: var(--color-thm);  }
+.tag.platform-pico    { background: rgba(10, 132, 255, 0.12); color: var(--color-pico); }
+.tag.platform-vulnhub { background: rgba(255, 159, 10, 0.12); color: var(--color-vulnhub); }
+.tag.platform-custom  { background: rgba(191, 90, 242, 0.12); color: var(--color-custom); }
+
+/* Difficulty tags */
+.tag.difficulty-easy   { background: rgba(48, 209, 88, 0.12);  color: var(--color-easy);   border-color: transparent; }
+.tag.difficulty-medium { background: rgba(255, 214, 10, 0.12); color: var(--color-medium); border-color: transparent; }
+.tag.difficulty-hard   { background: rgba(255, 69, 58, 0.12);  color: var(--color-hard);   border-color: transparent; }
+.tag.difficulty-insane { background: rgba(191, 90, 242, 0.12); color: var(--color-insane); border-color: transparent; }
+
+/* ================================================
+   SEARCH BAR — iOS style
+   ================================================ */
+.search-container {
+    position: relative;
+    margin-bottom: var(--space-20);
+}
+
+.search-bar {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    padding: var(--space-12) var(--space-20) var(--space-12) 48px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        box-shadow var(--transition-fast);
+    font-family: var(--font-sans);
+}
+
+.search-bar::placeholder { color: var(--text-placeholder); }
+
+.search-bar:focus {
+    border-color: var(--accent-color);
+    background: var(--bg-pill);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.search-icon {
+    position: absolute;
+    left: var(--space-16);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    pointer-events: none;
+    width: 18px;
+    height: 18px;
+}
+
+/* ================================================
+   FILTER PILLS — iOS segment control style
+   ================================================ */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+    margin-bottom: var(--space-20);
+}
+
+.filter-pill {
+    padding: var(--space-6) var(--space-16);
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-pill);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.filter-pill:hover {
+    background: var(--bg-pill-hover);
+    color: var(--text-primary);
+}
+
+.filter-pill.active {
+    background: var(--accent-color);
+    color: #000;
+    border-color: transparent;
+}
+
+.filter-pill:active { transform: scale(0.95); }
+
+/* Sort controls */
+.sort-bar {
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+    margin-bottom: var(--space-20);
+    flex-wrap: wrap;
+}
+
+.sort-label {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+}
+
+.sort-select {
+    background: var(--bg-pill);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-pill);
+    padding: var(--space-6) var(--space-16);
+    color: var(--text-primary);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color var(--transition-fast);
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: var(--space-32);
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+.sort-select:focus { border-color: var(--accent-color); outline: none; }
+
+/* ================================================
+   BUTTONS — iOS style
+   ================================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--space-24);
+    border-radius: var(--radius-pill);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    letter-spacing: -0.01em;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+}
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-ghost {
+    background: var(--bg-pill);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.btn-ghost:hover { background: var(--bg-pill-hover); }
+
+/* ================================================
+   VIEW TOGGLE — Grid / Timeline
+   ================================================ */
+.view-toggle {
+    display: flex;
+    gap: var(--space-4);
+    background: var(--bg-pill);
+    border-radius: var(--radius-pill);
+    padding: var(--space-4);
+    border: 1px solid var(--border-color);
+}
+
+.view-btn {
+    width: 32px;
+    height: 26px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.view-btn.active {
+    background: var(--accent-color);
+    color: #000;
+}
+
+/* ================================================
+   SKELETON LOADERS — iOS shimmer
+   ================================================ */
+.skeleton {
+    background: var(--bg-pill);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+}
+
+.skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--glass-highlight) 50%,
+        transparent 100%
+    );
+    animation: shimmer 1.6s infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+    from { background-position: -200% 0; }
+    to   { background-position:  200% 0; }
+}
+
+.skeleton-card {
+    height: 160px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--space-16);
+}
+
+/* ================================================
+   ACHIEVEMENT BADGES
+   ================================================ */
+.achievement-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-12) var(--space-16);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    backdrop-filter: var(--blur-md);
+    -webkit-backdrop-filter: var(--blur-md);
+}
+
+.achievement-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: var(--accent-dim);
+    flex-shrink: 0;
+}
+
+.achievement-info { flex: 1; }
+.achievement-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.achievement-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* ================================================
+   PROGRESS BAR
+   ================================================ */
+.progress-bar {
+    height: 6px;
+    background: var(--bg-pill);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: var(--radius-pill);
+    transition: width 0.8s var(--spring-smooth);
+}
+
+.progress-fill.blue   { background: var(--sys-blue); }
+.progress-fill.orange { background: var(--sys-orange); }
+.progress-fill.purple { background: var(--sys-purple); }
+
+/* ================================================
+   SECTION DIVIDERS
+   ================================================ */
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-16);
+}
+
+.section-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-top: var(--space-4);
+    font-weight: 400;
+}

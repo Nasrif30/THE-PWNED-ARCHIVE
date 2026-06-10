@@ -1,0 +1,345 @@
+/* ===================================================
+   LAYOUT — App shell, sidebar, main, mobile tab bar
+   =================================================== */
+
+/* ---- App Container ---- */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ================================================
+   SIDEBAR — macOS/Apple Settings-style left panel
+   ================================================ */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-32) var(--space-16) var(--space-24);
+    z-index: 200;
+    background: var(--sidebar-bg);
+    backdrop-filter: var(--blur-xl);
+    -webkit-backdrop-filter: var(--blur-xl);
+    border-right: 1px solid var(--glass-border);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ---- Profile Section ---- */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-8) 0 var(--space-24);
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: var(--space-20);
+}
+
+.profile-pic-wrapper {
+    position: relative;
+    margin-bottom: var(--space-16);
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    box-shadow:
+        0 0 0 2px var(--accent-color),
+        var(--shadow-md);
+    transition: transform var(--transition-spring), box-shadow var(--transition-smooth);
+}
+
+.profile-pic:hover {
+    transform: scale(1.06);
+    box-shadow:
+        0 0 0 2px var(--accent-color),
+        var(--accent-glow),
+        var(--shadow-lg);
+}
+
+.profile-status {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    background: var(--sys-green);
+    border-radius: 50%;
+    border: 2.5px solid var(--bg-main);
+}
+
+.profile-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-4);
+}
+
+.handle {
+    color: var(--accent-color);
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+    margin-bottom: var(--space-8);
+}
+
+.bio {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    max-width: 200px;
+}
+
+/* ---- Navigation ---- */
+.nav-section {
+    margin-bottom: var(--space-8);
+}
+
+.nav-section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    padding: var(--space-8) var(--space-12) var(--space-6);
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    flex-grow: 1;
+}
+
+/* ---- Sidebar Footer ---- */
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: var(--space-20);
+    border-top: 1px solid var(--divider);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-12);
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: var(--bg-pill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-fast), transform var(--transition-spring);
+}
+
+.social-icon:hover {
+    background: var(--bg-pill-hover);
+    transform: scale(1.12);
+}
+
+.social-icon img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.75;
+    transition: opacity var(--transition-fast);
+}
+
+.social-icon:hover img { opacity: 1; }
+
+.copyright {
+    font-size: 0.68rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* ================================================
+   MOBILE HEADER BAR — iOS style top bar
+   ================================================ */
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--sidebar-bg);
+    backdrop-filter: var(--blur-xl);
+    -webkit-backdrop-filter: var(--blur-xl);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 200;
+    align-items: center;
+    padding: 0 var(--space-16);
+    justify-content: space-between;
+}
+
+.mobile-logo {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 0.04em;
+}
+
+.mobile-menu-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    background: var(--bg-pill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: background var(--transition-fast);
+}
+.mobile-menu-btn:hover { background: var(--bg-pill-hover); }
+
+/* ================================================
+   MOBILE DRAWER OVERLAY
+   ================================================ */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 199;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+.sidebar-overlay.visible {
+    opacity: 1;
+}
+
+/* ================================================
+   BOTTOM TAB BAR — iPhone-style
+   ================================================ */
+.tab-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--tab-bar-height);
+    background: var(--tab-bar-bg);
+    backdrop-filter: var(--blur-xl);
+    -webkit-backdrop-filter: var(--blur-xl);
+    border-top: 1px solid var(--glass-border);
+    z-index: 200;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding-bottom: max(env(safe-area-inset-bottom), 8px);
+}
+
+.tab-bar-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding-top: var(--space-8);
+}
+
+.tab-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-16);
+    border-radius: var(--radius-lg);
+    color: var(--text-tertiary);
+    transition: color var(--transition-fast), transform var(--transition-spring);
+    min-width: 60px;
+}
+
+.tab-btn .tab-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform var(--transition-spring);
+}
+
+.tab-btn .tab-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: color var(--transition-fast);
+}
+
+.tab-btn.active {
+    color: var(--accent-color);
+}
+
+.tab-btn.active .tab-icon {
+    transform: scale(1.12);
+}
+
+.tab-btn:active {
+    transform: scale(0.90);
+}
+
+/* ================================================
+   MAIN CONTENT AREA
+   ================================================ */
+.main-content {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    padding: var(--space-40) var(--space-32) var(--space-40);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: calc(1400px + var(--sidebar-width));
+}
+
+#app-view {
+    flex: 1;
+    animation: pageIn 0.35s var(--spring-smooth) both;
+}
+
+/* ================================================
+   GRID LAYOUTS
+   ================================================ */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-16);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-16);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-16);
+}
+
+/* Stats row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-12);
+    margin-bottom: var(--space-32);
+}
+
+@keyframes pageIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>The Pwned Archive | Alnasrif Haliddin</title>
+
+    <!-- SEO -->
+    <meta name="description" content="A premium cybersecurity portfolio and writeup archive documenting TryHackMe, HackTheBox, PicoCTF, VulnHub, and custom CTF challenges.">
+    <meta name="keywords" content="cybersecurity, CTF, HackTheBox, TryHackMe, pentesting, writeups, portfolio">
+    <meta name="author" content="Alnasrif Haliddin">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="The Pwned Archive | Alnasrif Haliddin">
+    <meta property="og:description" content="Premium cybersecurity portfolio — CTF writeups, machine compromises, and security research.">
+    <meta property="og:image" content="assets/profile.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Pwned Archive">
+    <meta name="twitter:description" content="Premium cybersecurity portfolio and writeup archive.">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00ff9d" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#1d9e75" media="(prefers-color-scheme: light)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Pwned Archive">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <!-- =============================================
+         MOBILE HEADER (hidden on desktop)
+    ============================================= -->
+    <header class="mobile-header" role="banner" aria-label="Mobile Navigation Header">
+        <span class="mobile-logo">PWNED.ARCHIVE</span>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Overlay for mobile sidebar -->
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- =============================================
+         SIDEBAR
+    ============================================= -->
+    <aside class="sidebar glass-panel" id="sidebar" role="navigation" aria-label="Main Navigation">
+
+        <!-- Profile -->
+        <div class="profile-section">
+            <div class="profile-pic-wrapper">
+                <img src="assets/profile.jpg"
+                     alt="Profile picture of Alnasrif Haliddin"
+                     class="profile-pic"
+                     id="ui-profile-pic"
+                     onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'80\' viewBox=\'0 0 80 80\'><circle cx=\'40\' cy=\'40\' r=\'40\' fill=\'%231c1c1e\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-size=\'28\' font-family=\'system-ui\' fill=\'%2300ff9d\'>AN</text></svg>'">
+                <div class="profile-status" aria-label="Online status"></div>
+            </div>
+            <h1 class="profile-name" id="ui-name">Loading...</h1>
+            <p class="handle" id="ui-handle">@loading</p>
+            <p class="bio" id="ui-bio"></p>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav-menu" aria-label="Page navigation">
+            <div class="nav-section-label">Navigate</div>
+
+            <a href="#archive" class="nav-link active" data-route="archive" id="nav-archive" role="menuitem">
+                <span class="nav-icon" aria-hidden="true">
+                    <img src="assets/icons/archive.svg" alt="">
+                </span>
+                Archive
+            </a>
+            <a href="#analytics" class="nav-link" data-route="analytics" id="nav-analytics" role="menuitem">
+                <span class="nav-icon" aria-hidden="true">
+                    <img src="assets/icons/analytics.svg" alt="">
+                </span>
+                Analytics
+            </a>
+            <a href="#profile" class="nav-link" data-route="profile" id="nav-profile" role="menuitem">
+                <span class="nav-icon" aria-hidden="true">
+                    <img src="assets/icons/profile.svg" alt="">
+                </span>
+                Profile
+            </a>
+
+            <div class="nav-section-label" style="margin-top: var(--space-12);">Tools</div>
+
+            <button class="nav-link" id="terminal-nav-btn" role="menuitem" aria-label="Open terminal">
+                <span class="nav-icon" aria-hidden="true">
+                    <img src="assets/icons/terminal.svg" alt="">
+                </span>
+                Terminal
+            </button>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="social-links" id="ui-social-links" aria-label="External profile links"></div>
+
+            <div class="theme-toggle-container">
+                <span class="theme-label">Dark Mode</span>
+                <button id="theme-toggle"
+                        aria-label="Toggle dark/light theme"
+                        role="switch"
+                        aria-checked="true">
+                </button>
+            </div>
+
+            <p class="copyright">
+                The Pwned Archive &copy; 2026<br>
+                <span style="opacity: 0.6; font-size: 0.65rem;">Documenting the compromised.</span>
+            </p>
+        </div>
+    </aside>
+
+    <!-- =============================================
+         MAIN CONTENT
+    ============================================= -->
+    <main class="main-content" role="main" id="main-content">
+        <div id="app-view"></div>
+    </main>
+
+    <!-- =============================================
+         BOTTOM TAB BAR (mobile only)
+    ============================================= -->
+    <nav class="tab-bar" id="tab-bar" role="navigation" aria-label="Tab bar navigation">
+        <div class="tab-bar-inner">
+            <button class="tab-btn active" data-route="archive" id="tab-archive" aria-label="Archive">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                    <rect x="1" y="3" width="22" height="5"></rect>
+                    <line x1="10" y1="12" x2="14" y2="12"></line>
+                </svg>
+                <span class="tab-label">Archive</span>
+            </button>
+            <button class="tab-btn" data-route="analytics" id="tab-analytics" aria-label="Analytics">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                    <line x1="6"  y1="20" x2="6"  y2="14"></line>
+                </svg>
+                <span class="tab-label">Analytics</span>
+            </button>
+            <button class="tab-btn" data-route="profile" id="tab-profile" aria-label="Profile">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="tab-label">Profile</span>
+            </button>
+            <button class="tab-btn" id="tab-terminal" aria-label="Terminal">
+                <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+                <span class="tab-label">Terminal</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- =============================================
+         TERMINAL (fixed floating panel)
+    ============================================= -->
+    <div class="terminal-container closed" id="terminal" role="region" aria-label="Command Terminal">
+        <div class="terminal-header" id="terminal-toggle" aria-label="Toggle terminal">
+            <div class="terminal-dots" aria-hidden="true">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+            </div>
+            <span class="terminal-title">user@pwned-archive — bash</span>
+            <button class="terminal-close" id="terminal-close-btn" aria-label="Close terminal" style="
+                width:auto; height:auto; visibility:visible; color:var(--text-tertiary);
+                font-size:0.8rem; font-weight:600; padding: 0 var(--space-8);">ESC</button>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-output" id="terminal-output">
+                <div style="color: var(--accent-color); font-weight: 600;">
+                    The Pwned Archive Terminal v1.0
+                </div>
+                <div style="color: var(--text-tertiary);">Type <span style="color:var(--accent-color)">help</span> for available commands.</div>
+                <div style="height: var(--space-8);"></div>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt" aria-hidden="true">user@pwned-archive:~$</span>
+                <input type="text"
+                       id="terminal-input"
+                       autocomplete="off"
+                       spellcheck="false"
+                       aria-label="Terminal input"
+                       placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox (injected dynamically) -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">&times;</button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Screenshot">
+        <div class="lightbox-nav">
+            <button class="lightbox-btn" id="lightbox-prev" aria-label="Previous image">&#10094; Prev</button>
+            <span id="lightbox-caption" aria-live="polite"></span>
+            <button class="lightbox-btn" id="lightbox-next" aria-label="Next image">Next &#10095;</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- =============================================
+     JAVASCRIPT — Load order matters
+============================================= -->
+<script src="js/theme.js"></script>
+<script src="js/router.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/app.js"></script>
+
+<script src="js/archive.js" defer></script>
+<script src="js/analytics.js" defer></script>
+<script src="js/charts.js" defer></script>
+<script src="js/markdown.js" defer></script>
+<script src="js/terminal.js" defer></script>
+<script src="js/search.js" defer></script>
+<script src="js/filters.js" defer></script>
+<script src="js/gallery.js" defer></script>
+
+<script>
+    // Mobile sidebar toggle
+    const menuBtn  = document.getElementById('mobile-menu-btn');
+    const sidebar  = document.getElementById('sidebar');
+    const overlay  = document.getElementById('sidebar-overlay');
+
+    function openSidebar() {
+        sidebar.classList.add('mobile-open');
+        overlay.classList.add('visible');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+        sidebar.classList.remove('mobile-open');
+        overlay.classList.remove('visible');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.contains('mobile-open') ? closeSidebar() : openSidebar();
+    });
+
+    overlay.addEventListener('click', closeSidebar);
+
+    // Close sidebar on nav link click (mobile)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) closeSidebar();
+        });
+    });
+
+    // Bottom tab bar navigation
+    document.querySelectorAll('.tab-btn[data-route]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            window.location.hash = '#' + btn.dataset.route;
+        });
+    });
+
+    // Tab terminal button
+    const tabTerminalBtn = document.getElementById('tab-terminal');
+    if (tabTerminalBtn) {
+        tabTerminalBtn.addEventListener('click', () => {
+            const term = document.getElementById('terminal');
+            if (term) term.classList.toggle('closed');
+        });
+    }
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./service-worker.js')
+                .catch(() => {}); // Silent fail for local dev
+        });
+    }
+</script>
+
+</body>
+</html>

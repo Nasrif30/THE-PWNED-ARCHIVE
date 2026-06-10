@@ -1,0 +1,13 @@
+{
+  "slug": "kryptonite-ctf",
+  "title": "Kryptonite",
+  "platform": "Custom CTF",
+  "difficulty": "Hard",
+  "os": "Linux",
+  "date": "2026-06-05",
+  "flags": 3,
+  "favorite": true,
+  "tags": ["Custom", "Buffer Overflow", "Reverse Engineering", "Binary Exploit"],
+  "writeup": "content/kryptonite-ctf.md",
+  "screenshots": []
+}

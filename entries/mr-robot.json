@@ -1,0 +1,13 @@
+{
+  "slug": "mr-robot",
+  "title": "Mr Robot",
+  "platform": "VulnHub",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-05-15",
+  "flags": 3,
+  "favorite": true,
+  "tags": ["WordPress", "Hydra", "nmap", "Privilege Escalation"],
+  "writeup": "content/mr-robot.md",
+  "screenshots": []
+}

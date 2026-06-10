@@ -1,0 +1,13 @@
+{
+  "slug": "operation-coldstart",
+  "title": "Operation Coldstart",
+  "platform": "TryHackMe",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-07",
+  "flags": 2,
+  "favorite": true,
+  "tags": ["LFI", "Privilege Escalation", "Linux", "PHP"],
+  "writeup": "content/operation-coldstart.md",
+  "screenshots": []
+}
