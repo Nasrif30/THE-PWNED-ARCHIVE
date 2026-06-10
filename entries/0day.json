@@ -1,0 +1,13 @@
+{
+  "slug": "0day",
+  "title": "0day",
+  "platform": "TryHackMe",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-11",
+  "flags": 2,
+  "favorite": true,
+  "tags": ["Shellshock", "CGI", "Linux Kernel", "Searchsploit"],
+  "writeup": "content/0day.md",
+  "screenshots": []
+}

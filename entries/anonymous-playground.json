@@ -1,0 +1,13 @@
+{
+  "slug": "anonymous-playground",
+  "title": "Anonymous Playground",
+  "platform": "Custom CTF",
+  "difficulty": "Hard",
+  "os": "Linux",
+  "date": "2026-06-11",
+  "flags": 3,
+  "favorite": true,
+  "tags": ["Cryptography", "Buffer Overflow", "SUID", "Tar Wildcard"],
+  "writeup": "content/anonymous-playground.md",
+  "screenshots": []
+}

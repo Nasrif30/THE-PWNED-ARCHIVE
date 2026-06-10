@@ -1,0 +1,13 @@
+{
+  "slug": "nginx-rift",
+  "title": "Nginx Rift",
+  "platform": "Custom CTF",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-11",
+  "flags": 1,
+  "favorite": false,
+  "tags": ["CVE-2026-42945", "Nginx", "Heap", "Exploit"],
+  "writeup": "content/nginx-rift.md",
+  "screenshots": []
+}

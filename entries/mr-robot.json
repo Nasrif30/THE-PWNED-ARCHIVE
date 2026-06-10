@@ -1,13 +1,13 @@
 {
   "slug": "mr-robot",
   "title": "Mr Robot",
-  "platform": "VulnHub",
+  "platform": "TryHackMe",
   "difficulty": "Medium",
   "os": "Linux",
-  "date": "2026-05-15",
+  "date": "2026-06-11",
   "flags": 3,
   "favorite": true,
-  "tags": ["WordPress", "Hydra", "nmap", "Privilege Escalation"],
+  "tags": ["WordPress", "Hydra", "nmap", "SUID"],
   "writeup": "content/mr-robot.md",
   "screenshots": []
 }

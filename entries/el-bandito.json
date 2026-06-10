@@ -1,0 +1,13 @@
+{
+  "slug": "el-bandito",
+  "title": "El Bandito",
+  "platform": "Custom CTF",
+  "difficulty": "Hard",
+  "os": "N/A",
+  "date": "2026-06-11",
+  "flags": 2,
+  "favorite": false,
+  "tags": ["SSRF", "WebSocket Smuggling", "Fuzzing", "Burp Suite"],
+  "writeup": "content/el-bandito.md",
+  "screenshots": []
+}

@@ -4,10 +4,10 @@
   "platform": "TryHackMe",
   "difficulty": "Medium",
   "os": "Linux",
-  "date": "2026-06-07",
+  "date": "2026-06-11",
   "flags": 2,
-  "favorite": true,
-  "tags": ["LFI", "Privilege Escalation", "Linux", "PHP"],
+  "favorite": false,
+  "tags": ["Boot2Root", "SSRF", "Cron", "Tar Wildcard"],
   "writeup": "content/operation-coldstart.md",
   "screenshots": []
 }
