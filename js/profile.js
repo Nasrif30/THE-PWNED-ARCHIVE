@@ -20,7 +20,7 @@ class Profile {
             this.profileData = {
                 name: 'Alnasrif Haliddin',
                 handle: '@Nasrif30',
-                bio: 'Cybersecurity Enthusiast • CTF Player • Future Penetration Tester',
+                bio: 'Motivated by curiosity and a passion for technology, I enjoy exploring cybersecurity, solving CTF challenges, and documenting every step of my journey in The Pwned Archive.',
                 certifications: [],
                 learningFocus: 'Penetration Testing',
                 location: 'Philippines',
