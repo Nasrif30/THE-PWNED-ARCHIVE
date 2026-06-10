@@ -145,11 +145,11 @@
 }
 
 /* Floating Desktop Toggle */
-.desktop-theme-toggle {
-    position: fixed;
+#theme-toggle-desktop {
+    position: fixed !important;
     top: var(--space-32);
     right: var(--space-40);
-    z-index: 100;
+    z-index: 1000;
 }
 
 /* ================================================
