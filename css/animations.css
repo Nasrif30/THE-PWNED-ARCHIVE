@@ -151,22 +151,6 @@
 }
 
 /* ================================================
-   SIDEBAR NAV LINK ACTIVE INDICATOR
-   ================================================ */
-.nav-link.active::before {
-    content: '';
-    position: absolute;
-    left: -var(--space-16);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 60%;
-    background: var(--accent-color);
-    border-radius: var(--radius-pill);
-    animation: slideInLeft 0.3s var(--spring-bounce) both;
-}
-
-/* ================================================
    REDUCED MOTION OVERRIDES
    ================================================ */
 @media (prefers-reduced-motion: reduce) {
