@@ -1,4 +1,4 @@
-![Congrats](../assets/screenshots/operation-coldstart/operation%20cold%20start%20congrats.jpg)
+![Congrats](assets/screenshots/operation-coldstart/operation%20cold%20start%20congrats.jpg)
 
 # TryHackMe - Operation Coldstart: Complete Walkthrough
 
@@ -79,7 +79,7 @@ Retrieve the user flag:
 webdev@coldstart:~$ find / -name "user.txt" 2>/dev/null
 /home/webdev/user.txt
 webdev@coldstart:~$ cat /home/webdev/user.txt
-![User Flag](../assets/screenshots/operation-coldstart/firstflag.png)
+![User Flag](assets/screenshots/operation-coldstart/firstflag.png)
 ```
 
 ## Step 5: Privilege Escalation to Root 
@@ -141,11 +141,11 @@ root@coldstart:/opt/backups#
 Read the root flag:
 ```bash
 root@coldstart:/opt/backups# cat /root/flag.txt
-![Root Flag](../assets/screenshots/operation-coldstart/secondflag.png)
+![Root Flag](assets/screenshots/operation-coldstart/secondflag.png)
 ```
 
 ## Final Flags
-- `user.txt` - ![User Flag](../assets/screenshots/operation-coldstart/firstflag.png)
-- `flag.txt` - ![Root Flag](../assets/screenshots/operation-coldstart/secondflag.png)
+- `user.txt` - ![User Flag](assets/screenshots/operation-coldstart/firstflag.png)
+- `flag.txt` - ![Root Flag](assets/screenshots/operation-coldstart/secondflag.png)
 
 **Tools Used:** Nmap, FTP client, Curl, SSH, Netcat, Python, and Tar

@@ -1,4 +1,4 @@
-![Congrats](../assets/screenshots/anonymous-playground/ano%20congrats.jpg)
+![Congrats](assets/screenshots/anonymous-playground/ano%20congrats.jpg)
 
 # Anonymous Playground CTF
 Level of difficulty: **HARD**
@@ -60,7 +60,7 @@ Password: `magnaisanelephant`
 cat flag.txt
 ```
 **FIRST FLAG:** 
-![First Flag](../assets/screenshots/anonymous-playground/firstflag%20ano.jpg)
+![First Flag](assets/screenshots/anonymous-playground/firstflag%20ano.jpg)
 
 ```bash
 ls -la
@@ -97,7 +97,7 @@ whoami
 cat /home/spooky/flag.txt
 ```
 **SECOND FLAG:** 
-![Second Flag](../assets/screenshots/anonymous-playground/secondflag%20ano.jpg)
+![Second Flag](assets/screenshots/anonymous-playground/secondflag%20ano.jpg)
 
 ## STEP 6: CRON JOB EXPLOIT (spooky -> root)
 ```bash
@@ -132,9 +132,9 @@ Then the result: CONNECTION RECEIVED - ROOT SHELL!
 cat /root/flag.txt
 ```
 **THIRD FLAG:** 
-![Third Flag](../assets/screenshots/anonymous-playground/thirdflag%20ano.jpg)
+![Third Flag](assets/screenshots/anonymous-playground/thirdflag%20ano.jpg)
 
 ## SUMMARY OF FLAGS:
-- Flag 1 (magna): ![First Flag](../assets/screenshots/anonymous-playground/firstflag%20ano.jpg)
-- Flag 2 (spooky): ![Second Flag](../assets/screenshots/anonymous-playground/secondflag%20ano.jpg)
-- Flag 3 (root): ![Third Flag](../assets/screenshots/anonymous-playground/thirdflag%20ano.jpg)
+- Flag 1 (magna): ![First Flag](assets/screenshots/anonymous-playground/firstflag%20ano.jpg)
+- Flag 2 (spooky): ![Second Flag](assets/screenshots/anonymous-playground/secondflag%20ano.jpg)
+- Flag 3 (root): ![Third Flag](assets/screenshots/anonymous-playground/thirdflag%20ano.jpg)

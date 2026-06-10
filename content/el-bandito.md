@@ -1,4 +1,4 @@
-![Congrats](../assets/screenshots/El%20Bandito/El%20Bandito%20congrats.jpg)
+![Congrats](assets/screenshots/El%20Bandito/El%20Bandito%20congrats.jpg)
 
 # EL BANDITO - CTF
 

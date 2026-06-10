@@ -1,4 +1,4 @@
-![Congrats](../assets/screenshots/uplink/uplink%20congrats.jpg)
+![Congrats](assets/screenshots/uplink/uplink%20congrats.jpg)
 
 # Uplink — Hack The Box
 
@@ -133,7 +133,7 @@ else:
 
 ```bash
 python3 submit.py
-![Flag](../assets/screenshots/uplink/flag%20uplink%20ctf%20htb.png)
+![Flag](assets/screenshots/uplink/flag%20uplink%20ctf%20htb.png)
 ```
 
 ## Conclusion

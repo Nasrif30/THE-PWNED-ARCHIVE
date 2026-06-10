@@ -1,4 +1,4 @@
-![Congrats](../assets/screenshots/0day/0day%20congrats.jpg)
+![Congrats](assets/screenshots/0day/0day%20congrats.jpg)
 
 # 0day TryHackMe Machine CTF
 
@@ -42,7 +42,7 @@ cd /home/ryan
 cat user.txt
 ```
 **Flag:** 
-![User Flag](../assets/screenshots/0day/firstflag%200day.jpg)
+![User Flag](assets/screenshots/0day/firstflag%200day.jpg)
 
 ## Step 6: Privilege Escalation to Root
 
@@ -90,7 +90,7 @@ After exploit ran, prompt changed to `#` (root shell):
 cat /root/root.txt
 ```
 **Flag:** 
-![Root Flag](../assets/screenshots/0day/secondflag%200day.jpg)
+![Root Flag](assets/screenshots/0day/secondflag%200day.jpg)
 
 ## Tools Used:
 - Nmap 
@@ -103,5 +103,5 @@ cat /root/root.txt
 - Python HTTP Server
 
 ## Final Flags:
-- User: ![User Flag](../assets/screenshots/0day/firstflag%200day.jpg)
-- Root: ![Root Flag](../assets/screenshots/0day/secondflag%200day.jpg)
+- User: ![User Flag](assets/screenshots/0day/firstflag%200day.jpg)
+- Root: ![Root Flag](assets/screenshots/0day/secondflag%200day.jpg)

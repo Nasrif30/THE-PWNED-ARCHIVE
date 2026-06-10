@@ -1,4 +1,4 @@
-![Congrats](../assets/screenshots/mr%20robot/mr%20robot%20congrats.jpg)
+![Congrats](assets/screenshots/mr%20robot/mr%20robot%20congrats.jpg)
 
 # Mr. Robot CTF 
 
@@ -38,7 +38,7 @@ key-1-of-3.txt
 curl http://10.48.148.118/key-1-of-3.txt
 ```
 **FIRST FLAG:** 
-![First Flag](../assets/screenshots/mr%20robot/firstflag%20mrrobot.jpg)
+![First Flag](assets/screenshots/mr%20robot/firstflag%20mrrobot.jpg)
 
 ```bash
 curl -O http://10.48.148.118/fsocity.dic
@@ -130,7 +130,7 @@ Password: abcdefghijklmnopqrstuvwxyz
 cat /home/robot/key-2-of-3.txt
 ```
 **SECOND FLAG:** 
-![Second Flag](../assets/screenshots/mr%20robot/secondflag%20mrrobot.jpg)
+![Second Flag](assets/screenshots/mr%20robot/secondflag%20mrrobot.jpg)
 
 ## Step 7: Privilege Escalation to Root
 ```bash
@@ -149,9 +149,9 @@ python3 -c 'import os; os.setuid(0); os.system("cat /root/key-3-of-3.txt")'
 ```
 
 **THIRD FLAG:** 
-![Third Flag](../assets/screenshots/mr%20robot/thirdflag%20mrrobot.jpg)
+![Third Flag](assets/screenshots/mr%20robot/thirdflag%20mrrobot.jpg)
 
 ## Final Flags
-- Flag 1: ![First Flag](../assets/screenshots/mr%20robot/firstflag%20mrrobot.jpg)
-- Flag 2: ![Second Flag](../assets/screenshots/mr%20robot/secondflag%20mrrobot.jpg)
-- Flag 3: ![Third Flag](../assets/screenshots/mr%20robot/thirdflag%20mrrobot.jpg)
+- Flag 1: ![First Flag](assets/screenshots/mr%20robot/firstflag%20mrrobot.jpg)
+- Flag 2: ![Second Flag](assets/screenshots/mr%20robot/secondflag%20mrrobot.jpg)
+- Flag 3: ![Third Flag](assets/screenshots/mr%20robot/thirdflag%20mrrobot.jpg)

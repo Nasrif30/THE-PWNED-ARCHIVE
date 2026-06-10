@@ -1,4 +1,4 @@
-![Congrats](../assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20CONRATS.jpg)
+![Congrats](assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20CONRATS.jpg)
 
 # CVE-2026-42945: Nginx Rift 
 
@@ -20,7 +20,7 @@ python3 poc.py --host 10.48.184.95 --port 19321 --cmd "cat /flag.txt"
 ```
 
 **Result:**
-![Flag](../assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)
+![Flag](assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)
 
 ## Step 4: Get a Reverse Shell
 ```bash
@@ -31,7 +31,7 @@ Wait for the connection, then you can run command on the server:
 ```bash
 cat /flag.txt
 ```
-![Flag](../assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)
+![Flag](assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)
 
 ## Final Flag
-![Flag](../assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)
+![Flag](assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)
