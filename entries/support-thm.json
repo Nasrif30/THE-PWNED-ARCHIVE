@@ -1,0 +1,13 @@
+{
+  "slug": "support-thm",
+  "title": "Support",
+  "platform": "TryHackMe",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-09",
+  "flags": 2,
+  "favorite": false,
+  "tags": ["LFI", "IDOR", "Command Injection", "Cookie Tampering"],
+  "writeup": "content/support-thm.md",
+  "screenshots": []
+}

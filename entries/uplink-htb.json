@@ -1,0 +1,13 @@
+{
+  "slug": "uplink-htb",
+  "title": "Uplink",
+  "platform": "HackTheBox",
+  "difficulty": "Insane",
+  "os": "Linux",
+  "date": "2026-05-27",
+  "flags": 1,
+  "favorite": true,
+  "tags": ["Coding", "Algorithms", "Python", "Dynamic Programming"],
+  "writeup": "content/uplink-htb.md",
+  "screenshots": []
+}
