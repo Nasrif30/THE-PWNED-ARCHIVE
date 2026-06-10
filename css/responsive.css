@@ -1,12 +1,23 @@
 /* ===================================================
-   RESPONSIVE — Mobile-first, iPhone bottom tab bar
+   RESPONSIVE — Mobile-first, full overhaul
    =================================================== */
 
+/* Global overflow guard */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    min-width: 0;     /* critical: allows flex/grid children to shrink */
+}
+
 /* ================================================
-   TABLET — iPad-style (≤ 1100px)
+   TABLET — (≤ 1100px)
    ================================================ */
 @media screen and (max-width: 1100px) {
-    :root { --sidebar-width: 240px; }
+    :root { --sidebar-width: 230px; }
 
     .main-content {
         padding: var(--space-32) var(--space-24) var(--space-32);
@@ -23,17 +34,23 @@
     .profile-card {
         position: static;
     }
+
+    /* Terminal narrower on tablet */
+    .terminal-container {
+        width: 360px;
+    }
 }
 
 /* ================================================
-   MOBILE — iPhone style (≤ 768px)
+   MOBILE — (≤ 768px)
    ================================================ */
 @media screen and (max-width: 768px) {
-    /* Hide desktop sidebar */
+
+    /* ---- Sidebar becomes a slide-over drawer ---- */
     .sidebar {
         transform: translateX(-100%);
         transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
-        width: 300px;
+        width: 280px;
         z-index: 210;
         padding-top: var(--space-64);
     }
@@ -43,104 +60,151 @@
         box-shadow: 4px 0 40px rgba(0, 0, 0, 0.5);
     }
 
-    /* Show overlay */
+    /* ---- Show mobile UI elements ---- */
     .sidebar-overlay { display: block; }
+    .mobile-header   { display: flex; }
+    .tab-bar         { display: block; }
 
-    /* Show mobile header */
-    .mobile-header { display: flex; }
-
-    /* Show bottom tab bar */
-    .tab-bar { display: block; }
-
-    /* Main content adjustments */
+    /* ---- Main content: full width, no sidebar offset ---- */
     .main-content {
         margin-left: 0;
-        padding: calc(56px + var(--space-24)) var(--space-16) calc(var(--tab-bar-height) + var(--space-16));
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        padding: calc(56px + var(--space-20)) var(--space-16) calc(var(--tab-bar-height) + var(--space-20));
     }
 
-    /* Page header */
-    .page-header { margin-bottom: var(--space-20); }
+    /* ---- Page header ---- */
+    .page-header { margin-bottom: var(--space-16); }
+    .page-header h2 { font-size: 1.5rem; }
+    .page-header p  { font-size: 0.85rem; }
 
-    .page-header h2 { font-size: 1.6rem; }
-
-    /* Stats row — 2 cols */
+    /* ---- Stats: 2 columns ---- */
     .stats-row {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-10);
+        margin-bottom: var(--space-20);
     }
 
-    /* Grid — 1 col on small */
+    /* ---- Archive grid: 1 column ---- */
     .grid-layout {
         grid-template-columns: 1fr;
     }
 
-    /* Analytics grid */
-    .analytics-grid { grid-template-columns: 1fr; }
-
-    /* Profile grid */
+    /* ---- Analytics / Profile grids: single col ---- */
+    .analytics-grid   { grid-template-columns: 1fr; }
     .profile-page-grid { grid-template-columns: 1fr; }
+    .profile-card     { position: static; }
 
-    .profile-card { position: static; }
-
-    /* Archive toolbar wraps */
+    /* ---- Archive toolbar wraps ---- */
     .archive-toolbar {
         flex-direction: column;
         align-items: flex-start;
+        gap: var(--space-8);
     }
 
-    /* Entry page */
-    .entry-meta-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* ---- Sort bar wraps ---- */
+    .sort-bar {
+        flex-wrap: wrap;
+        gap: var(--space-8);
     }
 
-    .markdown-body {
-        padding: var(--space-20);
-    }
-
-    /* Gallery */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    /* Terminal — full screen drawer on mobile */
-    .terminal-container {
-        width: 100%;
-        right: 0;
-        left: 0;
-    }
-
-    /* On mobile show ✕ close button instead of ESC */
-    .terminal-close-esc { display: none; }
-    .terminal-close-x   { display: inline; }
-
-    /* Cards */
-    .card { border-radius: var(--radius-lg); }
-
-    /* Filter pills scroll */
+    /* ---- Filter pills: horizontal scroll ---- */
     .filter-bar {
         flex-wrap: nowrap;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         padding-bottom: var(--space-4);
         scrollbar-width: none;
+        gap: var(--space-6);
     }
     .filter-bar::-webkit-scrollbar { display: none; }
     .filter-pill { flex-shrink: 0; }
+
+    /* ---- Search bar ---- */
+    .search-bar { font-size: 0.85rem; }
+
+    /* ---- Entry page meta ---- */
+    .entry-meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ---- Markdown content ---- */
+    .markdown-body {
+        padding: var(--space-16);
+        font-size: 0.9rem;
+    }
+
+    /* Prevent pre/code overflow */
+    .markdown-body pre,
+    .markdown-body code {
+        white-space: pre-wrap;
+        word-break: break-all;
+        overflow-x: hidden;
+    }
+
+    /* Images inside writeups */
+    .markdown-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: var(--radius-md);
+    }
+
+    /* ---- Gallery ---- */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ---- Cards ---- */
+    .card { border-radius: var(--radius-lg); }
+
+    /* ---- Terminal: full-width slide-over from right ---- */
+    .terminal-container {
+        width: 100%;
+        left: 0;
+        right: 0;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    /* Show ✕ on mobile, hide ESC */
+    .terminal-close-esc { display: none;   }
+    .terminal-close-x   { display: inline; }
+
+    /* ---- Achievement grid ---- */
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ---- Profile info rows ---- */
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
 }
 
 /* ================================================
    SMALL PHONES — (≤ 390px)
    ================================================ */
 @media screen and (max-width: 390px) {
-    .stats-row {
-        grid-template-columns: 1fr 1fr;
+    .main-content {
+        padding-left: var(--space-12);
+        padding-right: var(--space-12);
     }
 
-    .page-header h2 { font-size: 1.4rem; }
+    .stats-row {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+    }
 
-    .stat-value { font-size: 1.6rem; }
+    .page-header h2 { font-size: 1.25rem; }
+    .stat-value     { font-size: 1.5rem; }
 
-    .tab-btn { min-width: 50px; padding: var(--space-6) var(--space-8); }
-    .tab-btn .tab-label { font-size: 0.58rem; }
+    .tab-btn { min-width: 48px; padding: var(--space-6) var(--space-8); }
+    .tab-btn .tab-label { font-size: 0.56rem; }
+
+    .filter-pill { font-size: 0.7rem; padding: 4px 10px; }
 }
 
 /* ================================================
@@ -161,16 +225,18 @@
 }
 
 /* ================================================
-   iOS Safe Area Support (notch, home indicator)
+   iOS Safe Area (notch / home indicator)
    ================================================ */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
     .tab-bar {
         padding-bottom: max(env(safe-area-inset-bottom), 8px);
     }
 
-    .main-content {
-        padding-left: max(var(--space-16), env(safe-area-inset-left));
-        padding-right: max(var(--space-16), env(safe-area-inset-right));
+    @media screen and (max-width: 768px) {
+        .main-content {
+            padding-left:  max(var(--space-16), env(safe-area-inset-left));
+            padding-right: max(var(--space-16), env(safe-area-inset-right));
+        }
     }
 }
 

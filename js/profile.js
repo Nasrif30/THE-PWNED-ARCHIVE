@@ -97,12 +97,7 @@ class Profile {
         const pico    = entries.filter(e => e.platform?.toLowerCase().includes('pico')).length;
         const flags   = entries.reduce((s, e) => s + (e.flags || 0), 0);
 
-        const certHtml = (d.certifications || []).map(cert => `
-            <div class="cert-item">
-                <div class="cert-icon">C</div>
-                <span>${cert}</span>
-            </div>
-        `).join('') || '<p style="color:var(--text-tertiary); font-size:0.85rem;">No certifications listed yet.</p>';
+
 
         // Achievements
         const achievements = this.calcAchievements(entries, d);
@@ -153,12 +148,6 @@ class Profile {
                         ${this.buildProgressItem('HackTheBox', htb, total, 'var(--color-htb)')}
                         ${this.buildProgressItem('TryHackMe', thm, total, 'var(--color-thm)')}
                         ${this.buildProgressItem('PicoCTF', pico, total, 'var(--sys-blue)')}
-                    </div>
-
-                    <!-- Certifications -->
-                    <div class="info-card animate-fade-in" style="animation-delay:.14s">
-                        <div class="info-card-title">Certifications</div>
-                        ${certHtml}
                     </div>
 
                     </div>
