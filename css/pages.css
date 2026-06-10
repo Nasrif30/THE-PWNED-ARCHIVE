@@ -634,6 +634,7 @@
 
 .terminal-container.closed {
     transform: translateX(100%);
+    box-shadow: none;
 }
 
 .terminal-header {

@@ -65,6 +65,8 @@ html, body {
     .mobile-header   { display: flex; }
     .tab-bar         { display: block; }
 
+    .desktop-theme-toggle { display: none !important; }
+
     /* ---- Main content: full width, no sidebar offset ---- */
     .main-content {
         margin-left: 0;
