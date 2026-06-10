@@ -45,9 +45,9 @@ class Archive {
             } catch {
                 // Local fallback — discover files via index or hardcoded list
                 const knownFiles = [
-                    'operation-coldstart', 'basic-pentesting', 'blue-htb',
-                    'mr-robot', 'pico-rsa', 'bolt-vulnhub', 'cap-htb',
-                    'internal-thm', 'advent-day1', 'rootme-thm'
+                    'operation-coldstart', 'nginx-rift', 'mr-robot',
+                    '0day', 'anonymous-playground', 'el-bandito',
+                    'uplink-htb', 'support-thm'
                 ];
                 files = knownFiles.map(n => ({
                     name: `${n}.json`,
