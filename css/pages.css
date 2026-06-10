@@ -610,38 +610,42 @@
 }
 
 /* ================================================
-   TERMINAL — macOS Terminal.app style
+   TERMINAL — Right-side drawer panel
    ================================================ */
 .terminal-container {
     position: fixed;
-    bottom: 0;
-    right: var(--space-32);
-    width: 560px;
-    background: rgba(12, 12, 14, 0.97);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-bottom: none;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    top: 0;
+    right: 0;
+    width: 420px;
+    height: 100vh;
+    background: rgba(10, 10, 12, 0.97);
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0;
     z-index: 1000;
-    transition: transform var(--transition-smooth);
-    box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
     backdrop-filter: var(--blur-xl);
     -webkit-backdrop-filter: var(--blur-xl);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .terminal-container.closed {
-    transform: translateY(calc(100% - 44px));
+    transform: translateX(100%);
 }
 
 .terminal-header {
     padding: var(--space-12) var(--space-16);
     background: rgba(28, 28, 30, 0.9);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    border-radius: 0;
     display: flex;
     align-items: center;
-    cursor: pointer;
+    cursor: default;
     gap: var(--space-12);
+    flex-shrink: 0;
 }
 
 /* macOS traffic lights */
@@ -672,22 +676,38 @@
 }
 
 .terminal-close {
-    color: transparent;
-    font-size: 0;
-    width: 0;
-    height: 0;
-    visibility: hidden;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 2px var(--space-8);
+    border-radius: var(--radius-sm);
+    background: rgba(255,255,255,0.06);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    cursor: pointer;
+    flex-shrink: 0;
+    height: auto;
+    width: auto;
+    visibility: visible;
 }
+.terminal-close:hover {
+    background: rgba(255,69,58,0.25);
+    color: #ff453a;
+}
+/* Mobile: show ✕, hide ESC text */
+.terminal-close-esc { display: inline; }
+.terminal-close-x   { display: none; }
 
 .terminal-body {
     padding: var(--space-16);
-    height: 320px;
+    flex: 1;
     overflow-y: auto;
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: #e8e8e8;
     line-height: 1.6;
     background: rgba(10, 10, 12, 0.98);
+    display: flex;
+    flex-direction: column;
 }
 
 .terminal-output { display: flex; flex-direction: column; gap: var(--space-4); }

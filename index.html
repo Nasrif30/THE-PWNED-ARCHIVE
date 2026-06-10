@@ -189,16 +189,17 @@
          TERMINAL (fixed floating panel)
     ============================================= -->
     <div class="terminal-container closed" id="terminal" role="region" aria-label="Command Terminal">
-        <div class="terminal-header" id="terminal-toggle" aria-label="Toggle terminal">
+        <div class="terminal-header" id="terminal-header" aria-label="Terminal panel">
             <div class="terminal-dots" aria-hidden="true">
                 <div class="terminal-dot red"></div>
                 <div class="terminal-dot yellow"></div>
                 <div class="terminal-dot green"></div>
             </div>
             <span class="terminal-title">user@pwned-archive — bash</span>
-            <button class="terminal-close" id="terminal-close-btn" aria-label="Close terminal" style="
-                width:auto; height:auto; visibility:visible; color:var(--text-tertiary);
-                font-size:0.8rem; font-weight:600; padding: 0 var(--space-8);">ESC</button>
+            <button class="terminal-close" id="terminal-close-btn" aria-label="Close terminal">
+                <span class="terminal-close-esc">ESC</span>
+                <span class="terminal-close-x">&times;</span>
+            </button>
         </div>
         <div class="terminal-body">
             <div class="terminal-output" id="terminal-output">

@@ -101,13 +101,16 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    /* Terminal — full width */
+    /* Terminal — full screen drawer on mobile */
     .terminal-container {
         width: 100%;
         right: 0;
         left: 0;
-        border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     }
+
+    /* On mobile show ✕ close button instead of ESC */
+    .terminal-close-esc { display: none; }
+    .terminal-close-x   { display: inline; }
 
     /* Cards */
     .card { border-radius: var(--radius-lg); }
