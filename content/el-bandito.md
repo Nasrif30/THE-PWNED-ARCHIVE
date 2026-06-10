@@ -1,3 +1,5 @@
+![Congrats](../assets/screenshots/El%20Bandito/El%20Bandito%20congrats.jpg)
+
 # EL BANDITO - CTF
 
 **Difficulty:** Hard  
@@ -44,8 +46,7 @@ If `/admin-flag` returns 403 or 404, try:
 Use Burp Intruder to automate fuzzing
 
 ## STEP 7: Get flag
-- `THM{:::MY_DECLINATION:+62°_14'_31.4'':::}`
-- `THM{¡!¡RIGHT_ASCENSION_12h_36m_25.46s!¡!}`
+*(Flags have been replaced with images/screenshots where applicable)*
 
 **Status Codes:**
 - 403 = exists but blocked

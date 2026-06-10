@@ -1,3 +1,5 @@
+![Congrats](../assets/screenshots/support-thm/support%20congrats.jpg)
+
 # Support — TryHackMe
 
 ## Overview
@@ -91,6 +93,8 @@ Password: `support@110`
 
 The first flag is displayed on the dashboard!
 
+![User Flag](../assets/screenshots/support-thm/support%20firstflag.jpg)
+
 ## Command Injection for Remote Code Execution (RCE)
 The admin dashboard contains a form with a dropdown designed to execute system commands (`sys` parameter).
 
@@ -115,6 +119,7 @@ Once inside the reverse shell, read the root flag:
 ```bash
 cat /home/ubuntu/user.txt
 ```
+![Root Flag](../assets/screenshots/support-thm/support%20secondflag.jpg)
 
 ## Conclusion
 The Support room perfectly demonstrates how Local File Inclusion can be used to read source code and extract hardcoded passwords. Combined with insecure cookie validation, an attacker can escalate privileges and achieve remote code execution.
