@@ -175,7 +175,12 @@ class Archive {
         if (data.length === 0) {
             grid.innerHTML = `
                 <div class="empty-state" style="grid-column:1/-1;">
-                    <div class="empty-state-icon">&#x1F50D;</div>
+                    <div class="empty-state-icon" style="opacity: 0.5; margin-bottom: 10px; display: flex; justify-content: center;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
                     <div class="empty-state-title">No entries found</div>
                     <div class="empty-state-desc">Try adjusting your search or filters.</div>
                 </div>

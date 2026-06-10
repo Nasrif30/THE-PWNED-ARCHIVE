@@ -19,10 +19,10 @@ window.ThemeManager = (() => {
         root.setAttribute('data-theme', theme);
         localStorage.setItem(STORAGE_KEY, theme);
 
-        // Update toggle ARIA
-        if (toggle) {
-            toggle.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
-        }
+        // Update all toggle buttons ARIA
+        document.querySelectorAll('#theme-toggle, #theme-toggle-desktop, #theme-toggle-mobile').forEach(t => {
+            t.setAttribute('aria-checked', theme === 'dark' ? 'true' : 'false');
+        });
 
         // Update theme-color meta
         const meta = document.querySelector('meta[name="theme-color"]');
@@ -36,12 +36,12 @@ window.ThemeManager = (() => {
         const theme = saved || getSystemTheme();
         applyTheme(theme);
 
-        if (toggle) {
-            toggle.addEventListener('click', () => {
+        document.querySelectorAll('#theme-toggle, #theme-toggle-desktop, #theme-toggle-mobile').forEach(t => {
+            t.addEventListener('click', () => {
                 const current = root.getAttribute('data-theme');
                 applyTheme(current === 'dark' ? 'light' : 'dark');
             });
-        }
+        });
 
         // Listen to system preference changes
         window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {

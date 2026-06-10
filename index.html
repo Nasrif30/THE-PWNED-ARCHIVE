@@ -57,11 +57,21 @@
     ============================================= -->
     <header class="mobile-header" role="banner" aria-label="Mobile Navigation Header">
         <span class="mobile-logo">PWNED.ARCHIVE</span>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
-            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-                <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
+        <div style="display:flex; align-items:center; gap:10px;">
+            <button id="theme-toggle-mobile"
+                    aria-label="Toggle dark/light theme"
+                    role="switch"
+                    aria-checked="true"
+                    style="position:relative; width:44px; height:26px; border-radius:13px;
+                           background:var(--border-color); cursor:pointer; flex-shrink:0;
+                           transition:background var(--transition-smooth);">
+            </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                    <path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
     </header>
 
     <!-- Overlay for mobile sidebar -->
@@ -124,21 +134,16 @@
         <div class="sidebar-footer">
             <div class="social-links" id="ui-social-links" aria-label="External profile links"></div>
 
-            <div class="theme-toggle-container">
-                <span class="theme-label">Dark Mode</span>
-                <button id="theme-toggle"
-                        aria-label="Toggle dark/light theme"
-                        role="switch"
-                        aria-checked="true">
-                </button>
-            </div>
-
             <p class="copyright">
                 The Pwned Archive &copy; 2026<br>
                 <span style="opacity: 0.6; font-size: 0.65rem;">Documenting the compromised.</span>
             </p>
         </div>
     </aside>
+
+    <!-- Desktop Theme Toggle (Top Right) -->
+    <button id="theme-toggle-desktop" class="desktop-theme-toggle" aria-label="Toggle dark/light theme" role="switch" aria-checked="true">
+    </button>
 
     <!-- =============================================
          MAIN CONTENT

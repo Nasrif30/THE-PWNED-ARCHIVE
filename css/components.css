@@ -62,6 +62,8 @@
     background: var(--accent-dim);
     color: var(--accent-color);
     font-weight: 600;
+    box-shadow: none;
+    outline: none;
 }
 
 .nav-link.active .nav-icon {
@@ -72,6 +74,13 @@
 .nav-link.active .nav-icon svg {
     opacity: 1;
     filter: brightness(0) invert(1);
+}
+
+/* Suppress focus ring on nav — it causes the green box bug */
+.nav-link:focus,
+.nav-link:focus-visible {
+    outline: none;
+    box-shadow: none;
 }
 
 .nav-link:active { transform: scale(0.97); }
@@ -93,6 +102,8 @@
     color: var(--text-secondary);
 }
 
+#theme-toggle-desktop,
+#theme-toggle-mobile,
 #theme-toggle {
     position: relative;
     width: 52px;
@@ -102,8 +113,11 @@
     transition: background var(--transition-smooth);
     cursor: pointer;
     flex-shrink: 0;
+    border: none;
 }
 
+#theme-toggle-desktop::after,
+#theme-toggle-mobile::after,
 #theme-toggle::after {
     content: '';
     position: absolute;
@@ -117,13 +131,25 @@
     box-shadow: var(--shadow-sm);
 }
 
+[data-theme="light"] #theme-toggle-desktop,
+[data-theme="light"] #theme-toggle-mobile,
 [data-theme="light"] #theme-toggle {
     background: var(--accent-color);
 }
 
+[data-theme="light"] #theme-toggle-desktop::after,
+[data-theme="light"] #theme-toggle-mobile::after,
 [data-theme="light"] #theme-toggle::after {
     transform: translateX(22px);
     background: white;
+}
+
+/* Floating Desktop Toggle */
+.desktop-theme-toggle {
+    position: fixed;
+    top: var(--space-32);
+    right: var(--space-40);
+    z-index: 100;
 }
 
 /* ================================================

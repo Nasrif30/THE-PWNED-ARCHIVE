@@ -2,7 +2,7 @@
   "slug": "0day",
   "title": "0day",
   "platform": "TryHackMe",
-  "difficulty": "Medium",
+  "difficulty": "Easy",
   "os": "Linux",
   "date": "2026-06-11",
   "flags": 2,
