@@ -1,8 +1,8 @@
 {
   "slug": "nginx-rift",
-  "title": "Nginx Rift",
-  "platform": "Custom CTF",
-  "difficulty": "Medium",
+  "title": "CVE-2026-42945: Nginx Rift",
+  "platform": "TryHackMe",
+  "difficulty": "Easy",
   "os": "Linux",
   "date": "2026-06-11",
   "flags": 1,

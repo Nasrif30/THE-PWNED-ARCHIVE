@@ -2,6 +2,8 @@
 
 # 0day TryHackMe Machine CTF
 
+> The 0day room on TryHackMe is officially rated as a Medium difficulty challenge. The core objective is to achieve initial access to the target machine to capture the user flag, and subsequently elevate privileges to capture the root flag.
+
 Step by step and errors I ran into:
 
 ## Step 1: Reconnaissance

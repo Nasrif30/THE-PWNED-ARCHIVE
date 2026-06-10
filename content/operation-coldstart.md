@@ -6,6 +6,8 @@
 **Category:** Boot2Root, Web Exploitation, and Privilege Escalation
 **Target IP:** 10.48.185.113 (lab ip)
 
+> The Operation Coldstart room is an intermediate-level TryHackMe challenge designed to simulate real-world Security Operations Center (SOC) incident response and ethical hacking. It requires Premium access and tests your offensive and defensive security skills across two primary stages.
+
 ## Step 1: Reconnaissance 
 
 **Nmap Scan:**
