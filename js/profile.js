@@ -144,10 +144,6 @@ class Profile {
                             <span class="info-row-label">Primary Focus</span>
                             <span class="info-row-value">${d.learningFocus || '—'}</span>
                         </div>
-                        <div class="info-row">
-                            <span class="info-row-label">Location</span>
-                            <span class="info-row-value">${d.location || '—'}</span>
-                        </div>
                     </div>
 
                     <!-- Platform Progress -->
@@ -165,20 +161,6 @@ class Profile {
                         ${certHtml}
                     </div>
 
-                    <!-- Achievements -->
-                    <div class="info-card animate-fade-in" style="animation-delay:.20s">
-                        <div class="info-card-title">Achievements</div>
-                        <div class="achievements-grid">
-                            ${achievements.map(a => `
-                                <div class="achievement-badge">
-                                    <div class="achievement-icon" style="background:${a.color}20; color:${a.color};">${a.icon}</div>
-                                    <div class="achievement-info">
-                                        <div class="achievement-title">${a.title}</div>
-                                        <div class="achievement-desc">${a.desc}</div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
                     </div>
                 </div>
             </div>

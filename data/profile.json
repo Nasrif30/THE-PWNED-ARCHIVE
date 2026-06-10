@@ -1,7 +1,7 @@
 {
   "name": "Alnasrif Haliddin",
   "handle": "0xNightShift",
-  "bio": "Cybersecurity Researcher • Full-Stack Developer • System Architect",
+  "bio": "Motivated by curiosity and a passion for technology, I enjoy exploring cybersecurity, solving CTF challenges, and documenting every step of my journey in The Pwned Archive.",
   "certifications": [
     "Cisco Computer Hardware Basics",
     "Cisco Introduction to Cybersecurity",
@@ -11,6 +11,5 @@
   "github": "https://github.com/Nasrif30",
   "linkedin": "https://linkedin.com/in/alnasrif-haliddin",
   "htb": "https://app.hackthebox.com/users/your-id",
-  "thm": "https://tryhackme.com/p/your-id",
-  "location": "Zamboanga City, Philippines"
+  "thm": "https://tryhackme.com/p/your-id"
 }
