@@ -131,15 +131,15 @@
     box-shadow: var(--shadow-sm);
 }
 
-[data-theme="light"] #theme-toggle-desktop,
-[data-theme="light"] #theme-toggle-mobile,
-[data-theme="light"] #theme-toggle {
+[data-theme="dark"] #theme-toggle-desktop,
+[data-theme="dark"] #theme-toggle-mobile,
+[data-theme="dark"] #theme-toggle {
     background: var(--accent-color);
 }
 
-[data-theme="light"] #theme-toggle-desktop::after,
-[data-theme="light"] #theme-toggle-mobile::after,
-[data-theme="light"] #theme-toggle::after {
+[data-theme="dark"] #theme-toggle-desktop::after,
+[data-theme="dark"] #theme-toggle-mobile::after,
+[data-theme="dark"] #theme-toggle::after {
     transform: translateX(22px);
     background: white;
 }
