@@ -1,0 +1,13 @@
+{
+  "slug": "evil-corp",
+  "title": "Evil Corp",
+  "platform": "HackTheBox",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-11",
+  "flags": 1,
+  "favorite": false,
+  "tags": ["Pwn", "Buffer Overflow", "PIE Bypass", "UTF-16"],
+  "writeup": "content/evil-corp.md",
+  "screenshots": []
+}
