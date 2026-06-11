@@ -1,4 +1,4 @@
-![Congrats](assets/screenshots/owasp-juice-shop/congrats.png)
+![Congrats](assets/screenshots/OWASP%20Juice%20Shop/congrats%20owasp%20juice%20shop.png)
 
 # TryHackMe: OWASP Juice Shop - Complete Walkthrough
 
