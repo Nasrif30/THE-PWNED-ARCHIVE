@@ -47,7 +47,8 @@ class Archive {
                 const knownFiles = [
                     'operation-coldstart', 'nginx-rift', 'mr-robot',
                     '0day', 'anonymous-playground', 'el-bandito',
-                    'uplink-htb', 'support-thm', 'evil-corp'
+                    'uplink-htb', 'support-thm', 'evil-corp',
+                    'owasp-juice-shop'
                 ];
                 files = knownFiles.map(n => ({
                     name: `${n}.json`,
