@@ -1,4 +1,4 @@
-![Congrats](assets/screenshots/evil-corp/congrats.jpg)
+![Congrats](assets/screenshots/Evil%20Corp/evil%20corp%20congrats.png)
 
 # Evil Corp - HTB Challenge Writeup
 
@@ -200,7 +200,7 @@ total 28
 $ cat flag.txt
 ```
 **Flag:**
-![Flag](assets/screenshots/evil-corp/flag.jpg)
+![Flag](assets/screenshots/Evil%20Corp/evil%20corp%20flag.png)
 
 ## Full Exploit Code (`exploit.py`)
 ```python
