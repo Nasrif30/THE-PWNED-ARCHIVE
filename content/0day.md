@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/0day/0day%20congrats.jpg)
 
 # 0day TryHackMe Machine CTF
+**Room Link:** [0day](https://tryhackme.com/room/0day)
 
 > The 0day room on TryHackMe is officially rated as a Medium difficulty challenge. The core objective is to achieve initial access to the target machine to capture the user flag, and subsequently elevate privileges to capture the root flag.
 

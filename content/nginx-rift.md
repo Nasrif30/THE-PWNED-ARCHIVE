@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20CONRATS.jpg)
 
 # CVE-2026-42945: Nginx Rift 
+**Room Link:** [Nginx Rift](https://tryhackme.com/room/nginxrift)
 
 ## Step 1: Check the Target
 ```bash

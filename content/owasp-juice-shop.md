@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/OWASP%20Juice%20Shop/congrats%20owasp%20juice%20shop.png)
 
 # TryHackMe: OWASP Juice Shop - Complete Walkthrough
+**Room Link:** [OWASP Juice Shop](https://tryhackme.com/room/owaspjuiceshop)
 
 This is a comprehensive walkthrough for the TryHackMe OWASP Juice Shop room, covering all 8 tasks. The room focuses on the OWASP Top 10 vulnerabilities using a deliberately vulnerable web application.
 
@@ -48,13 +49,13 @@ SQL injection occurs when an attacker enters a malicious query to manipulate the
 5. Forward the request
 
 Why it works: The `'` closes the SQL query brackets, `OR 1=1` is always true, and `--` comments out the rest of the query.
-**Answer:** `32a5e0f21372bcc1000a6088b93b458e41f0e02a`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #2: Log into the Bender account!**
 **Method:** Same SQL injection technique
 Capture the login request and change the email to: `bender@juice-sh.op'--`
 Why no 1=1? The email address itself is valid, so we don't need to force it to be true.
-**Answer:** `fb364762a3c102b2db932069c0e6b78e738d4066`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 ## Task 4: Who Broke My Lock? (Broken Authentication)
 
@@ -68,8 +69,8 @@ Why no 1=1? The email address itself is valid, so we don't need to force it to b
 5. Payloads → Load → `/usr/share/wordlists/SecLists/Passwords/Common-Credentials/best1050.txt`
 6. Start attack - look for status 200 (success)
 
-The password is: `admin123`
-**Answer:** `c2110d06dc6f81c67cd8099ff0ba601241f1ac0e`
+The password is: `[REDACTED]`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #2: Reset Jim's password!**
 **Method:** Password reset exploitation
@@ -80,7 +81,7 @@ The password is: `admin123`
 4. From Star Trek lore, Jim Kirk's brother's middle name is Samuel
 5. Enter Samuel and set a new password
 
-**Answer:** `094fbc9b48e525150ba97d05b942bbf114987257`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 ## Task 5: AH! Don't Look! (Sensitive Data Exposure)
 
@@ -91,15 +92,15 @@ The password is: `admin123`
 2. Download `acquisitions.md`
 3. Return to the homepage to receive the flag
 
-**Answer:** `edf9281222395a1c5fee9b89e32175f1ccf50c5b`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #2: Log into MC SafeSearch's account!**
 From his song, the password is "Mr. Noodles" with vowels replaced by zeros.
 **Credentials:**
 - **Email:** `mc.safesearch@juice-sh.op`
-- **Password:** `Mr. N00dles`
+- **Password:** `[REDACTED]`
 
-**Answer:** `66bdcffad9e698fd534003fbb3cc7e2b7b55d7f0`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #3: Download the Backup file!**
 **Method:** Poison Null Byte bypass
@@ -111,7 +112,7 @@ Poison Null Byte technique:
 - Bypass URL: `http://MACHINE_IP/ftp/package.json.bak%2500.md`
 
 Why it works: The null byte terminates the string, so the server ignores the `.md` extension.
-**Answer:** `bfc1e6b4a16579e85e06fee4c36ff8c02fb13795`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 ## Task 6: Who's Flying This Thing? (Broken Access Control)
 Broken Access Control includes:
@@ -128,7 +129,7 @@ Broken Access Control includes:
 5. Search for "admin" - find path: "administration"
 6. Access `http://MACHINE_IP/#/administration` while logged in as admin
 
-**Answer:** `946a799363226a24822008503f5d1324536629a0`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #2: View another user's shopping basket!**
 **Method:** Parameter tampering
@@ -138,13 +139,13 @@ Broken Access Control includes:
 3. Find `GET /rest/basket/1` request
 4. Change to `/rest/basket/2` and forward
 
-**Answer:** `41b997a36cc33fbe4f0ba018474e19ae5ce52121`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #3: Remove all 5-star reviews!**
 **Method:** Admin page action
 Navigate to `http://MACHINE_IP/#/administration` (logged in as admin) and click the trash/bin icon next to any 5-star review.
 
-**Answer:** `50c97bcce0b895e446d61c83a21df371ac2266ef`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 ## Task 7: Where Did That Come From? (XSS)
 XSS (Cross-Site Scripting) has three types:
@@ -155,7 +156,7 @@ XSS (Cross-Site Scripting) has three types:
 **Question #1: Perform a DOM XSS!**
 **Payload:** `<iframe src="javascript:alert(xss)">`
 Enter this into the search bar (magnifying glass) and press Enter.
-**Answer:** `9aaf4bbea5c30d00a1f5bbcfce4db6d4b0efe0bf`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #2: Perform a persistent XSS!**
 **Method:** True-Client-IP header injection
@@ -167,7 +168,7 @@ Enter this into the search bar (magnifying glass) and press Enter.
 5. Add header: `True-Client-IP: <iframe src="javascript:alert(xss)>"`
 6. Forward, log back in, revisit Last Login IP page
 
-**Answer:** `149aa8ce13d7a4a8a931472308e269c94dc5f156`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 **Question #3: Perform a reflected XSS!**
 **Method:** URL parameter injection
@@ -178,7 +179,7 @@ Enter this into the search bar (magnifying glass) and press Enter.
 4. Replace the id parameter value with: `<iframe src="javascript:alert(xss)>"`
 5. Refresh the page
 
-**Answer:** `23cefee1527bde039295b2616eeb29e1edc660a0`
+**Answer:** `[REDACTED per TryHackMe guidelines]`
 
 ## Task 8: Exploration! (Score Board)
 **Access the Score Board page!**

@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/anonymous-playground/ano%20congrats.jpg)
 
 # Anonymous Playground CTF
+**Room Link:** [Anonymous Playground](https://tryhackme.com/room/anonymousplayground)
 Level of difficulty: **HARD**
 
 Step by step method to get all 3 flags:
@@ -48,13 +49,13 @@ def decode_anonymous(encoded):
 
 **RESULT:**
 - Username: `magna`
-- Password: `magnaisanelephant`
+- Password: `[REDACTED]`
 
 ## STEP 4: SSH ACCESS AS MAGNA
 ```bash
 ssh magna@10.49.185.144
 ```
-Password: `magnaisanelephant`
+Password: `[REDACTED]`
 
 ```bash
 cat flag.txt

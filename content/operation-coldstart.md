@@ -3,6 +3,7 @@
 # TryHackMe - Operation Coldstart: Complete Walkthrough
 
 **Room Name:** Operation Coldstart
+**Room Link:** [Operation Coldstart](https://tryhackme.com/room/operationcoldstart)
 **Category:** Boot2Root, Web Exploitation, and Privilege Escalation
 **Target IP:** 10.48.185.113 (lab ip)
 
@@ -64,7 +65,7 @@ Response reveals SSH credentials:
 === INTERNAL ===
 SSH access for staging:
   user: webdev
-  pass: V0ltLabs#summer
+  pass: [REDACTED]
 - Mara
 ```
 
@@ -74,7 +75,7 @@ Connect using the obtained credentials:
 ```bash
 ssh webdev@10.48.185.113
 ```
-Password: `V0ltLabs#summer`
+Password: `[REDACTED]`
 
 Retrieve the user flag:
 ```bash

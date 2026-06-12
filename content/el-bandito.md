@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/El%20Bandito/El%20Bandito%20congrats.jpg)
 
 # EL BANDITO - CTF
+**Room Link:** [El Bandito](https://tryhackme.com/room/elbandito)
 
 **Difficulty:** Hard  
 **Tools:** Burp, Python, Netcat

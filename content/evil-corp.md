@@ -1,6 +1,7 @@
 ![Congrats](assets/screenshots/Evil%20Corp/evil%20corp%20congrats.png)
 
 # Evil Corp - HTB Challenge Writeup
+**Room Link:** [Evil Corp](https://app.hackthebox.com/challenges/evil-corp)
 
 > **Challenge Scenario:** We turned our assembly tester off because a big mistake from our new C developer. Do you think there are other mistakes he made?
 
@@ -67,13 +68,13 @@ strings evil-corp | head -30
 ```
 Output includes: `SupportMsg`, `AssemblyTestPage`, `LOGGED_IN`, `ContactSupport`, `eliot`, `4007`
 
-**Found credentials:** `eliot` / `4007`
+**Found credentials:** `[REDACTED]` / `[REDACTED]`
 
 ### Step 7: Test the Binary Locally
 ```bash
 ./evil-corp
 ```
-After login with `eliot/4007`, you'll see a menu with options:
+After login with `[REDACTED]/[REDACTED]`, you'll see a menu with options:
 1. Assembly Tester
 2. Contact Support
 3. Logout
@@ -120,7 +121,7 @@ From disassembly at `0x1678` and `0x168b`:
 wcscmp(user_input, L"eliot")
 wcscmp(pass_input, L"4007")
 ```
-**Credentials:** `eliot` / `4007`
+**Credentials:** `[REDACTED]` / `[REDACTED]`
 
 ## Understanding the Vulnerability
 
@@ -223,10 +224,10 @@ def exploit():
     p = remote(HOST, PORT)
     
     p.recvuntil(b'Username:')
-    p.sendline(b'eliot')
+    p.sendline(b'[REDACTED]')
     
     p.recvuntil(b'Password:')
-    p.sendline(b'4007')
+    p.sendline(b'[REDACTED]')
     
     p.recvuntil(b'Choice:')
     print("[+] Login successful")
