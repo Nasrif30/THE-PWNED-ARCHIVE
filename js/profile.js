@@ -90,6 +90,23 @@ class Profile {
         const container = document.getElementById('profile-content');
         if (!container) return;
 
+        if (window.ArchiveManager && window.ArchiveManager.entries.length === 0 && !window.ArchiveManager.isLoading) {
+            window.ArchiveManager.init();
+        }
+
+        if (window.ArchiveManager && window.ArchiveManager.isLoading) {
+            container.innerHTML = `
+                <div class="loading-pulse">
+                    <div class="loading-dots">
+                        <div class="loading-dot"></div><div class="loading-dot"></div><div class="loading-dot"></div>
+                    </div>
+                    Loading archive data...
+                </div>
+            `;
+            setTimeout(() => this.renderFullProfile(), 500);
+            return;
+        }
+
         const entries = window.ArchiveManager?.entries || [];
         const total   = entries.length;
         const htb     = entries.filter(e => e.platform?.toLowerCase().includes('hackthebox')).length;

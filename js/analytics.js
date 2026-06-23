@@ -38,6 +38,9 @@ window.AnalyticsManager = (() => {
 
     function init() {
         if (!processedData) {
+            if (window.ArchiveManager && window.ArchiveManager.entries.length === 0 && !window.ArchiveManager.isLoading) {
+                window.ArchiveManager.init();
+            }
             // Retry if archive hasn't loaded yet
             setTimeout(init, 500);
             return;
