@@ -1,0 +1,13 @@
+{
+  "id": "captchapocalypse",
+  "title": "CAPTCHApocalypse",
+  "category": "Web Exploitation",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-23",
+  "flags": 1,
+  "favorite": false,
+  "tags": ["Cryptography", "Automation", "OCR", "RSA", "Python"],
+  "writeup": "content/captchapocalypse.md",
+  "image": "assets/screenshots/CAPTCHApocalypse/CAPTCHApocalypse congrats .png"
+}
