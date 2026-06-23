@@ -129,11 +129,13 @@
 
 .entry-title {
     font-family: var(--font-mono);
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
     font-weight: 800;
     color: var(--accent-color);
     letter-spacing: -0.03em;
     margin-bottom: var(--space-16);
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .entry-meta-grid {
@@ -186,6 +188,8 @@
     margin-bottom: var(--space-16);
     padding-bottom: var(--space-12);
     border-bottom: 2px solid var(--divider);
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .markdown-body h2 {
@@ -197,6 +201,8 @@
     color: var(--text-primary);
     padding-bottom: var(--space-8);
     border-bottom: 1px solid var(--divider);
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .markdown-body h3 {
@@ -205,6 +211,8 @@
     margin-top: var(--space-24);
     margin-bottom: var(--space-8);
     color: var(--accent-color);
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .markdown-body p {
