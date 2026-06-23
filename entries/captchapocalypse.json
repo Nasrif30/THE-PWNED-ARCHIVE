@@ -1,6 +1,7 @@
 {
-  "id": "captchapocalypse",
+  "slug": "captchapocalypse",
   "title": "CAPTCHApocalypse",
+  "platform": "TryHackMe",
   "category": "Web Exploitation",
   "difficulty": "Medium",
   "os": "Linux",
