@@ -1,4 +1,4 @@
-![Congrats](assets/screenshots/CAPTCHApocalypse/CAPTCHApocalypse%20congrats%20.png)
+![Congrats](assets/screenshots/CAPTCHApocalypse/congrats.png)
 
 # TryHackMe - CAPTCHApocalypse: Complete Walkthrough
 **Room Link:** [CAPTCHApocalypse](https://tryhackme.com/room/captchapocalypse)
