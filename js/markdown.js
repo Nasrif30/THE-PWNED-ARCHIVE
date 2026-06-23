@@ -65,7 +65,7 @@ class MarkdownParser {
         // Prepend Machine Metadata Header
         const headerHTML = `
             <div style="margin-bottom: var(--spacing-xl); padding-bottom: var(--spacing-md); border-bottom: 2px solid var(--border-color);">
-                <h1 style="font-family: var(--font-mono); color: var(--accent-color); font-size: 2.5rem; margin-bottom: var(--spacing-sm);">${metadata.title}</h1>
+                <h1 style="font-family: var(--font-mono); color: var(--accent-color); font-size: clamp(1.5rem, 8vw, 2.5rem); margin-bottom: var(--spacing-sm); word-break: break-word; overflow-wrap: break-word; line-height: 1.2;">${metadata.title}</h1>
                 <div class="tag-container" style="margin-bottom: var(--spacing-sm);">
                     <span class="tag platform">${metadata.platform}</span>
                     <span class="tag difficulty-${metadata.difficulty.toLowerCase()}">${metadata.difficulty}</span>
