@@ -6,7 +6,7 @@
   "difficulty": "Medium",
   "os": "Linux",
   "date": "2026-06-25",
-  "flags": 2,
+  "flags": 3,
   "favorite": true,
   "tags": ["Challenge", "Reconnaissance", "Web", "Privilege Escalation", "Custom Room", "University"],
   "writeup": "content/bsit-student.md",
