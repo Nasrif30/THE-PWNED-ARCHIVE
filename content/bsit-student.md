@@ -11,7 +11,7 @@ The challenge emphasizes careful reconnaissance, application analysis, and chain
 
 ## Difficulty
 
-Hard
+Medium
 
 ## Skills Covered
 
