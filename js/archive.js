@@ -48,7 +48,7 @@ class Archive {
                     'operation-coldstart', 'nginx-rift', 'mr-robot',
                     '0day', 'anonymous-playground', 'el-bandito',
                     'uplink-htb', 'support-thm', 'evil-corp',
-                    'owasp-juice-shop', 'haskhell', 'captchapocalypse'
+                    'owasp-juice-shop', 'haskhell', 'captchapocalypse', 'bsit-student'
                 ];
                 files = knownFiles.map(n => ({
                     name: `${n}.json`,

@@ -1,0 +1,14 @@
+{
+  "slug": "bsit-student",
+  "title": "BSIT Student at Zamboanga City",
+  "platform": "TryHackMe",
+  "category": "Web Exploitation",
+  "difficulty": "Hard",
+  "os": "Linux",
+  "date": "2026-06-25",
+  "flags": 2,
+  "favorite": true,
+  "tags": ["Reconnaissance", "Web", "Privilege Escalation", "Custom Room", "University"],
+  "writeup": "content/bsit-student.md",
+  "image": "assets/screenshots/bsit-student/congrats.png"
+}
