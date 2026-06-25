@@ -52,7 +52,7 @@ class Archive {
                 ];
                 files = knownFiles.map(n => ({
                     name: `${n}.json`,
-                    download_url: `entries/${n}.json`
+                    download_url: `entries/${n}.json?t=${Date.now()}`
                 }));
             }
 

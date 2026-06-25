@@ -8,12 +8,12 @@ class MarkdownParser {
         
         try {
             // Fetch metadata JSON for this specific entry
-            const jsonRes = await fetch(`entries/${slug}.json`);
+            const jsonRes = await fetch(`entries/${slug}.json?t=${Date.now()}`);
             if (!jsonRes.ok) throw new Error("Metadata missing.");
             const metadata = await jsonRes.json();
 
             // Fetch markdown content
-            const mdRes = await fetch(metadata.writeup);
+            const mdRes = await fetch(`${metadata.writeup}?t=${Date.now()}`);
             if (!mdRes.ok) throw new Error("Writeup missing.");
             const mdText = await mdRes.text();
 
