@@ -191,23 +191,61 @@ class Archive {
             return;
         }
 
-        if (this.currentView === 'grid') {
-            grid.className = 'grid-layout';
-            grid.innerHTML = data.map((entry, i) => this.buildCard(entry, i)).join('');
-        } else {
-            grid.className = 'timeline-layout';
-            grid.innerHTML = data.map((entry, i) => `
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-card card animate-card-pop" style="animation-delay:${i * 0.06}s"
-                         onclick="window.location.hash='entry/${entry.slug}'"
-                         role="button" tabindex="0"
-                         aria-label="Open ${entry.title} writeup">
-                        ${this.buildCardInner(entry)}
-                    </div>
+        const groups = {
+            'TryHackMe': [],
+            'HackTheBox': [],
+            'Other Platforms': []
+        };
+
+        data.forEach(entry => {
+            const plat = (entry.platform || '').toLowerCase();
+            if (plat.includes('tryhackme')) groups['TryHackMe'].push(entry);
+            else if (plat.includes('hackthebox') || plat.includes('htb')) groups['HackTheBox'].push(entry);
+            else groups['Other Platforms'].push(entry);
+        });
+
+        grid.className = ''; // Remove top-level layout class
+        let html = '';
+        let globalIndex = 0;
+
+        for (const [platform, entries] of Object.entries(groups)) {
+            if (entries.length === 0) continue;
+            
+            html += `
+                <div class="archive-section-header animate-fade-in" style="margin: var(--space-40) 0 var(--space-20); padding-bottom: var(--space-12); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: var(--space-12);">
+                    <h3 style="margin: 0; font-size: 1.5rem; font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em;">${platform}</h3>
+                    <span style="background: var(--surface-light); padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent-color);">${entries.length}</span>
                 </div>
-            `).join('');
+            `;
+            
+            if (this.currentView === 'grid') {
+                html += '<div class="grid-layout">';
+                html += entries.map(entry => {
+                    globalIndex++;
+                    return this.buildCard(entry, globalIndex);
+                }).join('');
+                html += '</div>';
+            } else {
+                html += '<div class="timeline-layout">';
+                html += entries.map(entry => {
+                    globalIndex++;
+                    return `
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-card card animate-card-pop" style="animation-delay:${globalIndex * 0.04}s"
+                                 onclick="window.location.hash='entry/${entry.slug}'"
+                                 role="button" tabindex="0"
+                                 aria-label="Open ${entry.title} writeup">
+                                ${this.buildCardInner(entry)}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                html += '</div>';
+            }
         }
+
+        grid.innerHTML = html;
     }
 
     buildCard(entry, i) {
