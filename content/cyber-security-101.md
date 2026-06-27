@@ -7,7 +7,7 @@
 
 **Started:** 2026-06-24  
 **Completed:** 2026-06-26  
-**Certificate:** Issued on June 26, 2026
+**Certificate:** [Issued on June 26, 2026](https://tryhackme.com/certificate/THM-NYC9P6ZOU8)
 
 ---
 
