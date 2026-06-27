@@ -1,9 +1,8 @@
 ![Congrats](assets/screenshots/bsit-student/congrats.png)
 
 # BSIT Student at Zamboanga City — Challenge Overview
-**Room Link:** [BSIT Student at Zamboanga City](https://tryhackme.com/room/bsitstudentatzamboangacity)
-
-**TryHackMe Room:** BSIT Student at Zamboanga City
+**Room Link:** [BSIT Student at Zamboanga City](https://tryhackme.com/room/bsitstudentatzamboangacity)  
+**Play Room:** [Join on TryHackMe](https://tryhackme.com/jr/bsitstudentatzamboangacity)
 
 This room is designed as a realistic university penetration testing engagement focused on web application security, Linux enumeration, and privilege escalation. Players are expected to investigate a newly deployed Student Portal that has become the subject of an internal security incident.
 
