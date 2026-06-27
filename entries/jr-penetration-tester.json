@@ -1,0 +1,13 @@
+{
+  "slug": "jr-penetration-tester",
+  "title": "Jr Penetration Tester",
+  "platform": "TryHackMe",
+  "category": "Learning Path",
+  "difficulty": "Intermediate",
+  "os": "Various",
+  "date": "2026-06-16",
+  "flags": 0,
+  "favorite": true,
+  "tags": ["Learning Path", "Penetration Testing", "Web", "Network", "Active Directory"],
+  "writeup": "content/jr-penetration-tester.md"
+}
