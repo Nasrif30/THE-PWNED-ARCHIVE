@@ -61,11 +61,17 @@ class Archive {
 
             const jsonFiles = files.filter(f => f.name && f.name.endsWith('.json'));
 
+            const ts = Date.now();
             const results = await Promise.allSettled(
-                jsonFiles.map(f => fetch(f.download_url).then(r => {
-                    if (!r.ok) throw new Error('Not found');
-                    return r.json();
-                }))
+                jsonFiles.map(f => {
+                    const url = f.download_url.includes('?')
+                        ? `${f.download_url}&_t=${ts}`
+                        : `${f.download_url}?_t=${ts}`;
+                    return fetch(url).then(r => {
+                        if (!r.ok) throw new Error('Not found');
+                        return r.json();
+                    });
+                })
             );
 
             this.entries = results
