@@ -112,17 +112,18 @@ class Archive {
         const container = document.getElementById('archive-stats');
         if (!container || this.entries.length === 0) return;
 
-        const total    = this.entries.length;
+        const total    = this.entries.reduce((acc, e) => acc + (e.rooms || 1), 0);
         const flags    = this.entries.reduce((acc, e) => acc + (e.flags || 0), 0);
         const favs     = this.entries.filter(e => e.favorite).length;
         const latest   = this.entries[0]?.platform || '—';
         const streak   = this.calcStreak();
+        const label    = 'Rooms & Challenges';
 
         container.innerHTML = `
             <div class="stat-widget accent-green animate-card-pop">
                 <div class="stat-label">Total Pwned</div>
                 <div class="stat-value">${total}</div>
-                <div class="stat-sub">Machines &amp; Challenges</div>
+                <div class="stat-sub">${label}</div>
             </div>
             <div class="stat-widget accent-blue animate-card-pop">
                 <div class="stat-label">Flags Captured</div>

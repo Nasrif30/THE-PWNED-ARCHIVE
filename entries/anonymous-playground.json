@@ -1,7 +1,7 @@
 {
   "slug": "anonymous-playground",
   "title": "Anonymous Playground",
-  "platform": "Custom CTF",
+  "platform": "TryHackMe",
   "difficulty": "Hard",
   "os": "Linux",
   "date": "2026-06-11",
