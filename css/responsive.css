@@ -88,6 +88,15 @@ html, body {
         margin-bottom: var(--space-20);
     }
 
+    /* Latest Platform widget spans full width on mobile */
+    .stats-row > *:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .stat-widget {
+        padding: var(--space-16);
+    }
+
     /* ---- Archive grid: 1 column ---- */
     .grid-layout {
         grid-template-columns: 1fr;
@@ -200,8 +209,17 @@ html, body {
         gap: var(--space-8);
     }
 
+    .stats-row > *:last-child {
+        grid-column: 1 / -1;
+    }
+
     .page-header h2 { font-size: 1.25rem; }
-    .stat-value     { font-size: 1.5rem; }
+    .stat-value     { font-size: 1.6rem; }
+    .stat-label     { font-size: 0.65rem; }
+    .stat-sub       { font-size: 0.65rem; }
+    .stat-widget    { padding: var(--space-12); gap: var(--space-6); }
+
+    .archive-section-header h3 { font-size: 1.1rem !important; }
 
     .tab-btn { min-width: 48px; padding: var(--space-6) var(--space-8); }
     .tab-btn .tab-label { font-size: 0.56rem; }
