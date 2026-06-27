@@ -49,7 +49,8 @@ class Archive {
                     '0day', 'anonymous-playground', 'el-bandito',
                     'uplink-htb', 'support-thm', 'evil-corp',
                     'owasp-juice-shop', 'haskhell', 'captchapocalypse', 'bsit-student',
-                    'extract', 'cyber-security-101', 'red-teaming', 'jr-penetration-tester'
+                    'extract', 'cyber-security-101', 'red-teaming', 'jr-penetration-tester',
+                    'comptia-pentest'
                 ];
                 files = knownFiles.map(n => ({
                     name: `${n}.json`,
