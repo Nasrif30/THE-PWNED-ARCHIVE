@@ -1,0 +1,13 @@
+{
+  "slug": "cyber-security-101",
+  "title": "Cyber Security 101",
+  "platform": "TryHackMe",
+  "category": "Learning Path",
+  "difficulty": "Easy",
+  "os": "Various",
+  "date": "2026-06-26",
+  "flags": 0,
+  "favorite": true,
+  "tags": ["Learning Path", "Fundamentals", "Networking", "Cryptography", "Linux", "Windows", "Offensive Security", "Defensive Security"],
+  "writeup": "content/cyber-security-101.md"
+}

@@ -49,7 +49,7 @@ class Archive {
                     '0day', 'anonymous-playground', 'el-bandito',
                     'uplink-htb', 'support-thm', 'evil-corp',
                     'owasp-juice-shop', 'haskhell', 'captchapocalypse', 'bsit-student',
-                    'extract'
+                    'extract', 'cyber-security-101'
                 ];
                 files = knownFiles.map(n => ({
                     name: `${n}.json`,
