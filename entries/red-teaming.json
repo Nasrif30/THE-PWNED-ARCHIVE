@@ -1,0 +1,13 @@
+{
+  "slug": "red-teaming",
+  "title": "Red Teaming",
+  "platform": "TryHackMe",
+  "category": "Learning Path",
+  "difficulty": "Hard",
+  "os": "Various",
+  "date": "2026-06-20",
+  "flags": 0,
+  "favorite": true,
+  "tags": ["Learning Path", "Red Teaming", "Active Directory", "Evasion", "Windows", "Penetration Testing"],
+  "writeup": "content/red-teaming.md"
+}
