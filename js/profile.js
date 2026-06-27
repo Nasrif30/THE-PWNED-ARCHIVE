@@ -108,7 +108,7 @@ class Profile {
         }
 
         const entries = window.ArchiveManager?.entries || [];
-        const total   = entries.length;
+        const total   = entries.reduce((s, e) => s + (e.rooms || 1), 0);
         const htb     = entries.filter(e => e.platform?.toLowerCase().includes('hackthebox')).length;
         const thm     = entries.filter(e => e.platform?.toLowerCase().includes('tryhackme')).length;
         const pico    = entries.filter(e => e.platform?.toLowerCase().includes('pico')).length;
@@ -151,6 +151,10 @@ class Profile {
                         <div class="info-row">
                             <span class="info-row-label">Flags Captured</span>
                             <span class="info-row-value">${flags}</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-row-label">Created Rooms</span>
+                            <span class="info-row-value">1 (BSIT Student at Zamboanga City)</span>
                         </div>
                         <div class="info-row">
                             <span class="info-row-label">Primary Focus</span>

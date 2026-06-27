@@ -6,7 +6,8 @@
   "difficulty": "Easy",
   "os": "Various",
   "date": "2026-06-26",
-  "flags": 0,
+  "rooms": 56,
+  "flags": 112,
   "favorite": true,
   "tags": ["Learning Path", "Fundamentals", "Networking", "Cryptography", "Linux", "Windows", "Offensive Security", "Defensive Security"],
   "writeup": "content/cyber-security-101.md"

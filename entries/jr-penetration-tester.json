@@ -6,7 +6,8 @@
   "difficulty": "Intermediate",
   "os": "Various",
   "date": "2026-06-16",
-  "flags": 0,
+  "rooms": 98,
+  "flags": 196,
   "favorite": true,
   "tags": ["Learning Path", "Penetration Testing", "Web", "Network", "Active Directory"],
   "writeup": "content/jr-penetration-tester.md"

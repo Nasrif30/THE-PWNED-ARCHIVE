@@ -6,7 +6,8 @@
   "difficulty": "Hard",
   "os": "Various",
   "date": "2026-06-20",
-  "flags": 0,
+  "rooms": 36,
+  "flags": 108,
   "favorite": true,
   "tags": ["Learning Path", "Red Teaming", "Active Directory", "Evasion", "Windows", "Penetration Testing"],
   "writeup": "content/red-teaming.md"
