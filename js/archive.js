@@ -21,8 +21,9 @@ class Archive {
     }
 
     async init() {
-        // If already loaded, just re-render (e.g. navigating back)
         if (this.entries.length > 0) {
+            if (window.FiltersManager) window.FiltersManager.init(this.entries);
+            if (window.SearchManager) window.SearchManager.init(this.entries);
             this.renderStats();
             this.renderGrid(this.filtered.length ? this.filtered : this.entries);
             this.initViewToggle();
