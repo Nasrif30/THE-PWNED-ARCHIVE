@@ -253,7 +253,13 @@ html, body {
     }
 
     @media screen and (max-width: 768px) {
+        .mobile-header {
+            padding-top: env(safe-area-inset-top);
+            height: calc(56px + env(safe-area-inset-top));
+        }
+
         .main-content {
+            padding-top: calc(56px + var(--space-20) + env(safe-area-inset-top));
             padding-left:  max(var(--space-16), env(safe-area-inset-left));
             padding-right: max(var(--space-16), env(safe-area-inset-right));
         }
