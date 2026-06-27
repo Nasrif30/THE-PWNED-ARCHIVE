@@ -2,20 +2,26 @@
   "name": "The Pwned Archive",
   "short_name": "PwnedArchive",
   "description": "Documenting challenges, machines, and lessons learned.",
-  "start_url": "/index.html",
+  "start_url": "/THE-PWNED-ARCHIVE/",
+  "scope": "/THE-PWNED-ARCHIVE/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#0d1117",
   "theme_color": "#00ff9d",
   "icons": [
     {
-      "src": "assets/favicon.png",
+      "src": "assets/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "assets/favicon.png",
+      "src": "assets/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
-  ]
+  ],
+  "categories": ["productivity", "education"],
+  "screenshots": []
 }
