@@ -2,7 +2,7 @@
 
 **Path Link:** [Jr Penetration Tester](https://tryhackme.com/path/outline/jrpenetrationtester)
 
-> 🚧 **Work in Progress**
+> **Work in Progress**
 > *The author was feeling a bit lazy today and hasn't uploaded the full notes for this entire massive learning path just yet! The detailed writeup will be added in a future update. Stay tuned!*
 
 **Started:** 2026-06-12  
