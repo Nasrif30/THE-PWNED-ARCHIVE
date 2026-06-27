@@ -1,0 +1,18 @@
+{
+  "slug": "extract",
+  "title": "Extract",
+  "platform": "TryHackMe",
+  "category": "Web Exploitation",
+  "difficulty": "Hard",
+  "os": "Linux",
+  "date": "2026-06-28",
+  "flags": 2,
+  "favorite": true,
+  "tags": ["SSRF", "Gopher", "Next.js", "Authentication Bypass", "Insecure Deserialization", "CVE-2025-29927"],
+  "writeup": "content/extract.md",
+  "image": "assets/screenshots/extract/congrats.png",
+  "screenshots": [
+    "assets/screenshots/extract/flag1.png",
+    "assets/screenshots/extract/flag2.png"
+  ]
+}
