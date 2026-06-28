@@ -23,13 +23,13 @@ window.ChartRenderer = (() => {
         const total  = entries.reduce((s, [, v]) => s + v, 0);
         const ctx    = canvas.getContext('2d');
         const dpr    = window.devicePixelRatio || 1;
-        const W      = canvas.offsetWidth  || 280;
+        const W      = 400; // Fixed internal width to prevent legend overlap
         const H      = parseInt(canvas.getAttribute('height')) || 220;
 
         canvas.width  = W * dpr;
         canvas.height = H * dpr;
-        canvas.style.width  = W + 'px';
-        canvas.style.height = H + 'px';
+        canvas.style.width  = '100%';
+        canvas.style.height = 'auto';
         ctx.scale(dpr, dpr);
 
         const cx      = W / 2 - 50;   // shift left for legend
@@ -113,13 +113,13 @@ window.ChartRenderer = (() => {
 
         const ctx  = canvas.getContext('2d');
         const dpr  = window.devicePixelRatio || 1;
-        const W    = canvas.offsetWidth  || 500;
+        const W    = 600; // Fixed internal width
         const H    = parseInt(canvas.getAttribute('height')) || 180;
 
         canvas.width  = W * dpr;
         canvas.height = H * dpr;
-        canvas.style.width  = W + 'px';
-        canvas.style.height = H + 'px';
+        canvas.style.width  = '100%';
+        canvas.style.height = 'auto';
         ctx.scale(dpr, dpr);
 
         const padTop   = 16;
