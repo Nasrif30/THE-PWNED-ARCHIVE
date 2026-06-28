@@ -250,6 +250,12 @@ if __name__ == "__main__":
     exploit()
 ```
 
+## Tools Used
+- Ghidra / IDA Pro
+- GDB / Pwndbg
+- Python (pwntools)
+- Netcat
+
 ## Key Takeaways
 - **Unicode conversion vulnerabilities:** Converting between UTF-16 and UTF-32 expands data size, creating buffer overflows.
 - **Fixed mmap addresses bypass PIE:** `mmap` with fixed addresses gives predictable memory locations even with PIE enabled.

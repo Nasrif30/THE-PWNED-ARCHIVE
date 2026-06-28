@@ -3,8 +3,7 @@
 # EL BANDITO - CTF
 **Room Link:** [El Bandito](https://tryhackme.com/room/elbandito)
 
-**Difficulty:** Hard  
-**Tools:** Burp, Python, Netcat
+**Difficulty:** Hard
 
 ## STEP 1: Burp Setup
 Add listener `127.0.0.1:8080`
@@ -53,3 +52,8 @@ Use Burp Intruder to automate fuzzing
 - 403 = exists but blocked
 - 404 = wrong path
 - 500 = format error
+
+## Tools Used
+- Burp Suite
+- Python
+- Netcat

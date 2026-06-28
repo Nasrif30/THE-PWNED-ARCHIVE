@@ -34,5 +34,9 @@ cat /flag.txt
 ```
 ![Flag](assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)
 
+## Tools Used
+- Docker
+- Python
+
 ## Final Flag
 ![Flag](assets/screenshots/CVE-2026-42945-%20Nginx%20Rift/CVE-2026-42945-%20Nginx%20Rift%20flag.jpg)

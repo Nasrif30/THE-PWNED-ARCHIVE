@@ -122,5 +122,11 @@ cat /home/ubuntu/user.txt
 ```
 ![Root Flag](assets/screenshots/support-thm/support%20secondflag.jpg)
 
+## Tools Used
+- Nmap
+- Gobuster
+- Curl
+- Browser DevTools
+
 ## Conclusion
 The Support room perfectly demonstrates how Local File Inclusion can be used to read source code and extract hardcoded passwords. Combined with insecure cookie validation, an attacker can escalate privileges and achieve remote code execution.

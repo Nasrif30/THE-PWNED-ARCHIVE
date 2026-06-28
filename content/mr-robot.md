@@ -153,6 +153,14 @@ python3 -c 'import os; os.setuid(0); os.system("cat /root/key-3-of-3.txt")'
 **THIRD FLAG:** 
 ![Third Flag](assets/screenshots/mr%20robot/thirdflag%20mrrobot.jpg)
 
+## Tools Used
+- Nmap
+- Curl
+- Hydra
+- Netcat
+- Hashcat
+- Python
+
 ## Final Flags
 - Flag 1: ![First Flag](assets/screenshots/mr%20robot/firstflag%20mrrobot.jpg)
 - Flag 2: ![Second Flag](assets/screenshots/mr%20robot/secondflag%20mrrobot.jpg)

@@ -137,5 +137,10 @@ python3 submit.py
 ![Flag](assets/screenshots/uplink/flag%20uplink%20ctf%20htb.png)
 ```
 
+## Tools Used
+- Python (Requests library)
+- JSON Processing
+- Dynamic Programming Algorithm Design
+
 ## Conclusion
 Uplink is a fantastic algorithmic challenge that tests your ability to parse mathematical problems, design a Dynamic Programming solution, and build a rapid testing loop against a REST API. Sometimes, brute force combined with topological sorting is all you need to win the day.

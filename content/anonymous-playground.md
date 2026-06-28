@@ -135,6 +135,14 @@ cat /root/flag.txt
 **THIRD FLAG:** 
 ![Third Flag](assets/screenshots/anonymous-playground/thirdflag%20ano.jpg)
 
+## Tools Used
+- Nmap
+- FTP
+- SSH
+- GDB / Pwndbg
+- Netcat
+- Python
+
 ## SUMMARY OF FLAGS:
 - Flag 1 (magna): ![First Flag](assets/screenshots/anonymous-playground/firstflag%20ano.jpg)
 - Flag 2 (spooky): ![Second Flag](assets/screenshots/anonymous-playground/secondflag%20ano.jpg)

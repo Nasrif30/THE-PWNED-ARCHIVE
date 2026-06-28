@@ -187,3 +187,10 @@ The Score Board shows all completed challenges and their flags.
 **URL:** `http://MACHINE_IP/#/score-board`
 Simply navigating to this page marks the challenge as complete.
 Note: The flag is displayed at the top of the Score Board page. Your instance may generate a unique hash.
+
+## Tools Used
+- Burp Suite
+- FoxyProxy
+- Browser DevTools
+- SQLMap (optional)
+- Hydra (optional)

