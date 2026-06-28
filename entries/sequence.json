@@ -1,0 +1,18 @@
+{
+  "slug": "sequence",
+  "title": "Sequence",
+  "platform": "TryHackMe",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-29",
+  "flags": 3,
+  "favorite": false,
+  "tags": ["XSS", "CSRF", "RCE", "Docker Escape", "Web Pentesting"],
+  "writeup": "content/sequence.md",
+  "screenshots": [
+    "assets/screenshots/sequence/congrats.png",
+    "assets/screenshots/sequence/flag1.png",
+    "assets/screenshots/sequence/flag2.png",
+    "assets/screenshots/sequence/flag3.png"
+  ]
+}

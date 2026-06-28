@@ -51,7 +51,7 @@ class Archive {
                     'uplink-htb', 'support-thm', 'evil-corp',
                     'owasp-juice-shop', 'haskhell', 'captchapocalypse', 'bsit-student',
                     'extract', 'cyber-security-101', 'red-teaming', 'jr-penetration-tester',
-                    'comptia-pentest', 'web-app-pentesting'
+                    'comptia-pentest', 'web-app-pentesting', 'sequence'
                 ];
                 files = knownFiles.map(n => ({
                     name: `${n}.json`,
