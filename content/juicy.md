@@ -118,7 +118,7 @@ I decoded that second string (again using CyberChef) and got:
 
 ---
 
-## 🏁 Final Flags
+## Final Flags
 
 | Challenge | Flag |
 | :--- | :--- |
