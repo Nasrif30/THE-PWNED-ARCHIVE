@@ -52,6 +52,7 @@ class Router {
             case 'archive':   this.mountArchive();     break;
             case 'analytics': this.mountAnalytics();   break;
             case 'profile':   this.mountProfile();     break;
+            case 'projects':  this.mountProjects();    break;
             case 'entry':     this.mountEntry(slug);   break;
             default:          this.mountArchive();     break;
         }
@@ -140,6 +141,60 @@ class Router {
             <div id="profile-content"></div>
         `;
         if (window.ProfileManager) window.ProfileManager.renderFullProfile();
+    }
+
+    mountProjects() {
+        this.appView.innerHTML = `
+            <div class="page-header">
+                <h2>Projects</h2>
+                <p class="page-header-sub">Active developments and other domains</p>
+            </div>
+            
+            <div class="grid-layout">
+                <!-- Cyber -->
+                <a href="#" class="card" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: var(--space-20); padding: var(--space-24); transition: transform var(--transition-fast);">
+                    <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(10, 132, 255, 0.15); display: flex; align-items: center; justify-content: center; color: var(--sys-blue);">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Cybersecurity</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Security tools, platforms, and offensive research.</p>
+                    </div>
+                </a>
+
+                <!-- System Design -->
+                <a href="#" class="card" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: var(--space-20); padding: var(--space-24); transition: transform var(--transition-fast);">
+                    <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(255, 159, 10, 0.15); display: flex; align-items: center; justify-content: center; color: var(--sys-orange);">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">System Design</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">Architecture, scalable applications, and engineering.</p>
+                    </div>
+                </a>
+
+                <!-- AI -->
+                <a href="#" class="card" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: var(--space-20); padding: var(--space-24); transition: transform var(--transition-fast);">
+                    <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(191, 90, 242, 0.15); display: flex; align-items: center; justify-content: center; color: var(--sys-purple);">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 16v-4"></path>
+                            <path d="M12 8h.01"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Artificial Intelligence</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary);">LLMs, agents, and intelligent integrations.</p>
+                    </div>
+                </a>
+            </div>
+        `;
     }
 
     mountEntry(slug) {
