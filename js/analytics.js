@@ -60,6 +60,11 @@ window.AnalyticsManager = (() => {
         const hard   = (difficulties['Hard'] || 0) + (difficulties['Insane'] || 0);
         const linux  = os['Linux'] || 0;
         const windows = os['Windows'] || 0;
+        
+        let flags = 0;
+        if (window.ArchiveManager && window.ArchiveManager.entries) {
+            flags = window.ArchiveManager.entries.reduce((acc, e) => acc + (e.flags || 0), 0);
+        }
 
         container.innerHTML = `
             <div class="stat-widget accent-green animate-card-pop">
@@ -81,6 +86,11 @@ window.AnalyticsManager = (() => {
                 <div class="stat-label">Linux / Win</div>
                 <div class="stat-value">${linux} / ${windows}</div>
                 <div class="stat-sub">OS breakdown</div>
+            </div>
+            <div class="stat-widget accent-purple animate-card-pop">
+                <div class="stat-label">Flags Captured</div>
+                <div class="stat-value">${flags}</div>
+                <div class="stat-sub">Total flags found</div>
             </div>
         `;
     }
