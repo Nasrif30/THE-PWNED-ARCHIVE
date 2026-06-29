@@ -7,6 +7,8 @@
 
 **Started:** 2026-06-27  
 **Completed:** 2026-06-29  
+**Modules:** 5  
+**Hands-on Labs:** 23  
 **Certificate:** [Issued on June 29, 2026](https://tryhackme.com/certificate/THM-PZV2ZH3KO8)
 
 ---
