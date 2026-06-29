@@ -2,7 +2,7 @@
    SERVICE WORKER — The Pwned Archive PWA
    =================================================== */
 
-const CACHE_NAME = 'pwned-archive-v1';
+const CACHE_NAME = 'pwned-archive-v1.1';
 const BASE = '/THE-PWNED-ARCHIVE/';
 
 // Core shell files to pre-cache

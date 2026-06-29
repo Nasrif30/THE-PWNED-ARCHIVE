@@ -8,7 +8,7 @@ window.ChartRenderer = (() => {
 
     function getTextColor()   { return isDark() ? 'rgba(255,255,255,0.55)' : 'rgba(0,0,0,0.50)'; }
     function getGridColor()   { return isDark() ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)'; }
-    function getBgColor()     { return isDark() ? '#111113' : '#f2f2f7'; }
+    function getBgColor()     { return isDark() ? '#111113' : '#ffffff'; }
 
     /* ------------------------------------------------
        DONUT CHART

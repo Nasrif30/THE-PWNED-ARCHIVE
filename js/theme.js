@@ -29,6 +29,9 @@ window.ThemeManager = (() => {
         if (meta) {
             meta.content = theme === 'dark' ? '#00ff9d' : '#1d9e75';
         }
+
+        // Notify other components (like canvas charts) to re-render
+        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
     }
 
     function init() {

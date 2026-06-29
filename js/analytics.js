@@ -48,6 +48,12 @@ window.AnalyticsManager = (() => {
 
         renderStats();
         renderCharts();
+
+        window.addEventListener('themechange', () => {
+            if (document.getElementById('charts-grid')) {
+                renderCharts();
+            }
+        });
     }
 
     function renderStats() {
