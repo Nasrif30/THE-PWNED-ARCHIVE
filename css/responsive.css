@@ -90,7 +90,7 @@ html, body {
 
     /* Latest Platform widget spans full width on mobile */
     .stats-row > *:last-child {
-        grid-column: 1 / -1;
+        grid-column: span 2;
     }
 
     .stat-widget {
@@ -210,7 +210,7 @@ html, body {
     }
 
     .stats-row > *:last-child {
-        grid-column: 1 / -1;
+        grid-column: span 2;
     }
 
     .page-header h2 { font-size: 1.25rem; }

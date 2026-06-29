@@ -126,7 +126,7 @@ class Profile {
                     <img src="assets/profile.jpg"
                          alt="${d.name}"
                          class="profile-page-pic"
-                         onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%231c1c1e\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-size=\'32\' font-family=\'system-ui\' fill=\'%2300ff9d\'>AN</text></svg>'">
+                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\\'http://www.w3.org/2000/svg\\\' width=\\\'100\\\' height=\\\'100\\\' viewBox=\\\'0 0 100 100\\\'%3E%3Ccircle cx=\\\'50\\\' cy=\\\'50\\\' r=\\\'50\\\' fill=\\\'%231c1c1e\\\'/%3E%3Ctext x=\\\'50%25\\\' y=\\\'50%25\\\' dominant-baseline=\\\'middle\\\' text-anchor=\\\'middle\\\' font-size=\\\'32\\\' font-family=\\\'system-ui\\\' fill=\\\'%2300ff9d\\\'%3EAN%3C/text%3E%3C/svg%3E'">
                     <div class="profile-page-name">${d.name || ''}</div>
                     <div class="profile-page-handle">${d.handle || ''}</div>
                     <p class="profile-page-bio">${d.bio || ''}</p>

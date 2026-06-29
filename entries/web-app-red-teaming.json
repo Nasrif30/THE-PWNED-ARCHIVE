@@ -1,0 +1,14 @@
+{
+  "slug": "web-app-red-teaming",
+  "title": "Web Application Red Teaming",
+  "platform": "TryHackMe",
+  "category": "Learning Path",
+  "difficulty": "Hard",
+  "os": "Various",
+  "date": "2026-06-29",
+  "rooms": 23,
+  "flags": 64,
+  "favorite": true,
+  "tags": ["Learning Path", "Web Exploitation", "Red Teaming", "Cryptography", "WAF Bypass", "LLM Attacks", "Custom Tooling"],
+  "writeup": "content/web-app-red-teaming.md"
+}
