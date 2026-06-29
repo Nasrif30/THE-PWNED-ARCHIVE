@@ -1,3 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-  <path d="M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0zm4.636 7.875l-1.875 8.813c-.141.619-.516.773-1.044.48l-2.895-2.134-1.395 1.345c-.155.155-.285.285-.583.285l.208-2.953 5.377-4.858c.234-.208-.051-.323-.364-.115l-6.643 4.182-2.859-.895c-.621-.194-.633-.621.13-.92l11.165-4.307c.516-.188.97.124.778.077z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" fill="none">
+  <!-- Cloud Outline -->
+  <path d="M 52 64
+           L 24 64
+           C 8 64 8 44 24 44
+           C 26 22 56 22 60 44
+           C 72 44 76 60 66 64" 
+        stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Falling Binary -->
+  <g font-family="'Courier New', Courier, monospace" font-size="11" font-weight="800" fill="currentColor">
+    <text x="58" y="58">10 10</text>
+    <text x="58" y="70">1110</text>
+    <text x="56" y="82">0101 01</text>
+    <text x="58" y="94">01 010</text>
+  </g>
+
+  <!-- Try Hack Me Logotype -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="900" fill="currentColor">
+    <text x="94" y="44">Try</text>
+    <text x="94" y="72">Hack</text>
+    <text x="94" y="100">Me</text>
+  </g>
 </svg>
