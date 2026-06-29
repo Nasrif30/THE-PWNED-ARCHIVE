@@ -1,0 +1,14 @@
+{
+  "slug": "juicy",
+  "title": "Juicy",
+  "platform": "TryHackMe",
+  "category": "Machine",
+  "difficulty": "Medium",
+  "os": "Linux",
+  "date": "2026-06-29",
+  "rooms": 1,
+  "flags": 4,
+  "favorite": false,
+  "tags": ["Machine", "LLM", "Prompt Injection", "XSS", "Information Disclosure"],
+  "writeup": "content/juicy.md"
+}
