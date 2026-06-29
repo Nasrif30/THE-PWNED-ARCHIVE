@@ -8,7 +8,7 @@
 
 ---
 
-## 🛠️ Tools Used
+## Tools Used
 - **ffuf** – directory fuzzing
 - **Netcat (nc)** – listener for reverse callbacks
 - **CyberChef** – decoding base64 and URL encoding
